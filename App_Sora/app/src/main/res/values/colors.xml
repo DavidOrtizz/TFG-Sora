@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+
+    <color name="fondo_menu">#424549</color>
+    <color name="fondo_oscuro">#36393e</color>
 </resources>

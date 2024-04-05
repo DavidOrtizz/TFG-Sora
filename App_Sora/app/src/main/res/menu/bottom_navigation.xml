@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/gruposFragment"
+        android:icon="@drawable/icono_casitas"
+        android:title="@string/BottonGrupos"/>
+
+    <item
+        android:id="@+id/contactosFragment"
+        android:icon="@drawable/icono_mensajes"
+        android:title="@string/BottonContactos"/>
+
+    <item
+        android:id="@+id/notificacionesFragment"
+        android:icon="@drawable/icono_notificaciones"
+        android:title="@string/BottonNotificaciones"/>
+
+    <item
+        android:id="@+id/perfilFragment"
+        android:icon="@drawable/icono_desdentao2"
+        android:title="@string/BottonPerfil"/>
+</menu>
