@@ -42,4 +42,4 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 06/04/2024 - He implementado algunas imagenes y diseñando como va a ser la interfaz del dispositivo móvil 
 
 05/04/2024 - He realizado la implementación de un menú en la parte inferior del dispositivo móvil para cambiar de pestaña 
-facilmente utilizando basandome en este video tutorial: https://youtu.be/rm9NGA9UBXs?si=W4ofOKlQcHciilED 
+facilmente basandome en este video tutorial: https://youtu.be/rm9NGA9UBXs?si=W4ofOKlQcHciilED 
