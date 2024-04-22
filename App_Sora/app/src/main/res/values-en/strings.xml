@@ -10,4 +10,7 @@
     <string name="nombreCuenta">Account name</string>
     <string name="sobreMi">About me</string>
     <string name="cerrarSesion">Log Out</string>
+    <string name="presentacion">Welcome to Sora</string>
+    <string name="iniciarSesion">Log In</string>
+    <string name="contrasena">Password</string>
 </resources>

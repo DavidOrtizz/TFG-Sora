@@ -10,4 +10,11 @@
     <string name="nombreCuenta">Nombre de la cuenta</string>
     <string name="sobreMi">Sobre mí</string>
     <string name="cerrarSesion">Cerrar sesión</string>
+
+    <string name="presentacion">Bienvenid@ a Sora</string>
+    <string name="iniciarSesion">Iniciar sesión</string>
+
+    <string name="contrasena">Contraseña</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="registrate">¿No estás registrado?</string>
 </resources>

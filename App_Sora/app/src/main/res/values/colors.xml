@@ -7,4 +7,5 @@
 
     <color name="fondo_menu">#2c2d35</color>
     <color name="fondo_oscuro">#1c1d23</color>
+    <color name="colorIcono_celeste">#07c6fd</color>
 </resources>
