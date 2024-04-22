@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sora</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="BottonGrupos">Group</string>
+    <string name="BottonContactos">Contacs</string>
+    <string name="BottonNotificaciones">Notifications</string>
+    <string name="BottonPerfil">Profile</string>
+    <string name="nombreUsuario">User name</string>
+    <string name="nombreCuenta">Account name</string>
+    <string name="sobreMi">About me</string>
+    <string name="cerrarSesion">Log Out</string>
+</resources>

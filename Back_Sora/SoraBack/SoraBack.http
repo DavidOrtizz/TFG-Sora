@@ -1,0 +1,6 @@
+@SoraBack_HostAddress = http://localhost:5187
+
+GET {{SoraBack_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">Sora</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="BottonGrupos">Grupos</string>
     <string name="BottonContactos">Contactos</string>
     <string name="BottonNotificaciones">Notificaciones</string>
     <string name="BottonPerfil">Perfil</string>
+    <string name="nombreUsuario">Nombre del usuario</string>
+    <string name="nombreCuenta">Nombre de la cuenta</string>
+    <string name="sobreMi">Sobre mí</string>
+    <string name="cerrarSesion">Cerrar sesión</string>
 </resources>

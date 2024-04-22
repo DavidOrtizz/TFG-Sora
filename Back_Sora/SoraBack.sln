@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Back_Sora", "Back_Sora\Back_Sora.csproj", "{DE486EED-C7FA-473B-BD8E-9B75D4285434}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoraBack", "SoraBack\SoraBack.csproj", "{DCCF0CF3-387C-41DB-98A5-B6D8BBC62B00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DE486EED-C7FA-473B-BD8E-9B75D4285434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE486EED-C7FA-473B-BD8E-9B75D4285434}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE486EED-C7FA-473B-BD8E-9B75D4285434}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE486EED-C7FA-473B-BD8E-9B75D4285434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCCF0CF3-387C-41DB-98A5-B6D8BBC62B00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCCF0CF3-387C-41DB-98A5-B6D8BBC62B00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCCF0CF3-387C-41DB-98A5-B6D8BBC62B00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCCF0CF3-387C-41DB-98A5-B6D8BBC62B00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {69228E89-F97E-4209-A75C-E108669DCE4E}
+		SolutionGuid = {5295C5B6-10A2-4DA3-A945-8313BFAD0BA2}
 	EndGlobalSection
 EndGlobal
