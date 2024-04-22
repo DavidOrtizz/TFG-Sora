@@ -27,6 +27,16 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 
 # Histórico
 
+19/05/2024 - ⚠️ Pendiente de implementar ⚠️ Crear grupos y poder enviar y recibir mensajes entre los integrantes del grupo.
+
+10/05/2024 - ⚠️ Pendiente de implementar ⚠️ CheckPoint 1.
+
+05/05/2024 - ⚠️ Pendiente de implementar ⚠️ Enviar y recibir mensajes entre contactos.
+
+02/05/2024 - ⚠️ Pendiente de implementar ⚠️ Implementación de la funcionalidad de las notificaciones.
+
+28/04/2024 - ⚠️ Pendiente de implementar ⚠️ Crear cuenta e inciar sesión y que se guarde en la base de datos.
+
 20/04/2024 - He ordenado el readme para que sea mucho mas facil el entendimiento de este
 
 06/04/2024 - He implementado algunas imagenes y diseñando como va a ser la interfaz del dispositivo móvil 
