@@ -29,7 +29,7 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 
 19/05/2024 - ⚠️ Pendiente de implementar ⚠️ Crear grupos y poder enviar y recibir mensajes entre los integrantes del grupo
 
-10/05/2024 - ⚠️ Pendiente de implementar ⚠️ CheckPoint 1
+10/05/2024 - ⚠️ Pendiente de implementar ⚠️ Posible CheckPoint 1
 
 05/05/2024 - ⚠️ Pendiente de implementar ⚠️ Enviar y recibir mensajes entre contactos
 
