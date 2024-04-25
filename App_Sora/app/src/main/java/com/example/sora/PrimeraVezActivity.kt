@@ -1,6 +1,8 @@
 package com.example.sora
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +17,14 @@ class PrimeraVezActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val btnIniciarSesion = findViewById<Button>(R.id.buttonIniciarSesion)
+        val intent = Intent(this, IniciarSesionActivity::class.java)
+
+        btnIniciarSesion.setOnClickListener {
+            startActivity(intent)
+            finish()
         }
     }
 }

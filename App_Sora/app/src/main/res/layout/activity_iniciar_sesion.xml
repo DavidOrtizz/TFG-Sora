@@ -42,30 +42,35 @@
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/buttonIniciarSesion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        app:layout_constraintVertical_bias="0.081"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
+        android:layout_marginRight="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
         <EditText
             android:id="@+id/textContrasena"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/contrasena" />
+            android:hint="@string/contrasena"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/buttonIniciarSesion"
         android:layout_width="179dp"
         android:layout_height="41dp"
+        android:layout_marginTop="76dp"
         android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/colorIcono_celeste"
         android:text="@string/iniciarSesion"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textViewRegistrarse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="@color/colorIcono_celeste"/>
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <TextView
         android:id="@+id/textViewRegistrarse"

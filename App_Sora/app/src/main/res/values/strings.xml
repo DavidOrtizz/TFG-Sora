@@ -17,4 +17,8 @@
     <string name="contrasena">Contraseña</string>
     <string name="correo">Correo electrónico</string>
     <string name="registrate">¿No estás registrado?</string>
+    <string name="estasRegistrado">¿Estás registrado?</string>
+    <string name="registrarse">Registrate</string>
+    <string name="repetirContrasena">Repite la contraseña</string>
+    <string name="btnRegistrarse">Registrarse</string>
 </resources>

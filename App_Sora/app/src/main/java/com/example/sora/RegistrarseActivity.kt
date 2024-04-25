@@ -1,6 +1,9 @@
 package com.example.sora
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +18,21 @@ class RegistrarseActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val intent = Intent(this, IniciarSesionActivity::class.java)
+
+        val btnRegistrarse = findViewById<Button>(R.id.buttonRegistrarse)
+        val btnIniciar = findViewById<TextView>(R.id.textViewIniciar)
+
+        btnRegistrarse.setOnClickListener {
+            startActivity(intent)
+            finish()
+        }
+
+        btnIniciar.setOnClickListener {
+            startActivity(intent)
+            finish()
         }
     }
 }
