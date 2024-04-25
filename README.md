@@ -37,6 +37,8 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 
 28/04/2024 - ⚠️ Pendiente de implementar ⚠️ Crear cuenta e inciar sesión y que se guarde en la base de datos
 
+25/04/2024 - Implementación de vista iniciar sesión, registrarse y pantalla principal (Aún implementandolo)
+
 22/04/2024 - Implementación de las entidades de la base de datos, activity principal y activity inicio de sesión
 
 20/04/2024 - He ordenado el readme para que sea mucho mas facil el entendimiento de este
