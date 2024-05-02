@@ -21,4 +21,7 @@
     <string name="registrarse">Registrate</string>
     <string name="repetirContrasena">Repite la contraseña</string>
     <string name="btnRegistrarse">Registrarse</string>
+
+    <string name="errorRegistrarse">Ha ocurrido un error al registrarse</string>
+    <string name="errorContrasena">Las contraseñas no coinciden</string>
 </resources>

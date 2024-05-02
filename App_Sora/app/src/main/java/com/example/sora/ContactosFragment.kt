@@ -33,6 +33,9 @@ class ContactosFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Ocultar la ActionBar
+        activity?.actionBar?.hide()
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_contactos, container, false)
     }

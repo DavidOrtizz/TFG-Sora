@@ -25,6 +25,9 @@ namespace SoraBack
 
             app.UseHttpsRedirection();
 
+            // Habilita la autenticación
+            app.UseAuthentication();
+            // Habilita la autorización
             app.UseAuthorization();
 
 
