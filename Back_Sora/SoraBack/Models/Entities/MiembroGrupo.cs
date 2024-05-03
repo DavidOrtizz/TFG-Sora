@@ -2,7 +2,7 @@
 {
     public class MiembroGrupo
     {
-        public int GrupoId { get; set; }
+        public int Id { get; set; }
         public int UsuarioId { get; set; }
         public string Rol {  get; set; }
 

@@ -14,6 +14,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.Volley
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -39,47 +43,44 @@ class RegistrarseActivity : AppCompatActivity() {
         val btnIniciar = findViewById<TextView>(R.id.textViewIniciar)
 
         btnRegistrarse.setOnClickListener {
-            val NombreCuenta = eNombre.text.toString()
-            val NombreUsuario = NombreCuenta
-            val Correo = eCorreo.text.toString()
-            val Contrasena = eContrasena.text.toString()
-            val RepiteContrasena = eRepiteContrasena.text.toString()
-            val Descripcion = ""
-            val Rol = "USUARIO"
 
-            if (Contrasena == RepiteContrasena) {
-                val ResponseListener = Response.Listener<String> { response ->
-                    Log.d("RegistrarseActivity", "Respuesta del servidor: $response")
-                    try {
-                        val jsonResponse = JSONObject(response)
-                        val success = jsonResponse.getBoolean("success")
+                val NombreCuenta = eNombre.text.toString()
+                val NombreUsuario = NombreCuenta
+                val Correo = eCorreo.text.toString()
+                val Contrasena = eContrasena.text.toString()
+                val RepiteContrasena = eRepiteContrasena.text.toString()
+                val Rol = "USUARIO"
 
-                        if (success) {
-                            startActivity(intent)
-                            finish()
-                        } else {
-                            Toast.makeText(this, R.string.errorRegistrarse, Toast.LENGTH_LONG).show()
+                if (Contrasena == RepiteContrasena) {
+                    val ResponseListener = Response.Listener<String> { response ->
+                        try {
+                            val jsonResponse = JSONObject(response)
+                            val success = jsonResponse.getBoolean("success")
+
+                            if (success) {
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                Toast.makeText(this, R.string.errorRegistrarse, Toast.LENGTH_LONG).show()
+                            }
+
+                        } catch (e: JSONException) {
+                            e.printStackTrace()
                         }
-
-                    } catch (e: JSONException) {
-                        e.printStackTrace()
                     }
-                }
 
-                try {
-                    val registerRequest = RegisterRequest(NombreCuenta, NombreUsuario, Correo, Contrasena, Descripcion, Rol, ResponseListener)
-                    val queue: RequestQueue = Volley.newRequestQueue(this)
-                    queue.add(registerRequest)
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    Log.e("RegistrarseActivity", "Error en la solicitud de registro: ${e.message}")
-                    Toast.makeText(this, "Error en la solicitud de registro", Toast.LENGTH_SHORT).show()
+                    try {
+                        val registerRequest = RegisterRequest(NombreCuenta, NombreUsuario, Correo, Contrasena, Rol, ResponseListener)
+                        val queue: RequestQueue = Volley.newRequestQueue(this)
+                        queue.add(registerRequest)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                            Toast.makeText(this, "Error en la solicitud de registro", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                        Toast.makeText(this, R.string.errorContrasena, Toast.LENGTH_SHORT).show()
                 }
-            } else {
-                // Alerta de que la contraseña está mal introducida
-                Toast.makeText(this, R.string.errorContrasena, Toast.LENGTH_SHORT).show()
             }
-        }
 
         btnIniciar.setOnClickListener {
             startActivity(intent)

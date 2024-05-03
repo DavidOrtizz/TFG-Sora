@@ -33,7 +33,7 @@ namespace SoraBack.Controllers
             {
                 NombreCuenta = usuario.NombreCuenta,
                 NombreUsuario = usuario.NombreUsuario,
-                Correo = usuario.Correo,
+                Correo = usuario.Correo.ToLower(),
                 Contrasena = usuario.Contrasena,
                 Rol = "USUARIO"
             });

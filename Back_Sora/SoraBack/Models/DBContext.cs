@@ -7,14 +7,11 @@ namespace SoraBack.Models
     {
         private const string DATABASE_PATH = "soradb.db";
 
-        public string DbPath { get; set; }
-
         // Tablas
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<MiembroGrupo> MiembroGrupos { get; set; }
         public DbSet<GrupoMensajes> GrupoMensajes { get; set; }
-        public DbSet<Grupo> Grupos {  get; set; }
-        public DbSet<Contactos> Contactos { get; set; }
+        public DbSet<Grupo> Grupos {  get; set; } 
         public DbSet<ContactoMensaje> ContactoMensajes { get; set; }
 
         // Configuración EF para crear un archivo de base de datos
@@ -28,12 +25,8 @@ namespace SoraBack.Models
         {
             bool guardado = false;
 
-            if (Usuarios.FirstOrDefault(usuarioin => usuarioin.Correo.ToLower() == usuario.Correo.ToLower()) == null)
-            {
-                Usuarios.Add(usuario);
-                SaveChanges();
-                guardado = true;
-            }
+            Usuarios.Add(usuario);
+            guardado = SaveChanges() > 0;
 
             return guardado;
         }

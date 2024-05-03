@@ -1,4 +1,6 @@
 
+using SoraBack.Models;
+
 namespace SoraBack
 {
     public class Program
@@ -13,15 +15,22 @@ namespace SoraBack
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddScoped<DBContext>();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            using (IServiceScope scope = app.Services.CreateScope())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                DBContext dBContext = scope.ServiceProvider.GetService<DBContext>();
+                dBContext.Database.EnsureCreated();
             }
+
+                // Configure the HTTP request pipeline.
+                if (app.Environment.IsDevelopment())
+                {
+                    app.UseSwagger();
+                    app.UseSwaggerUI();
+                }
 
             app.UseHttpsRedirection();
 
