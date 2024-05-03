@@ -22,20 +22,23 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 <br>
 
 # Bibliografía
-[Android Studio - Bottom Navigation View](https://youtu.be/rm9NGA9UBXs?si=w4DWKEcbEMt41E__)
+[Android Studio - Bottom Navigation View](https://youtu.be/rm9NGA9UBXs?si=w4DWKEcbEMt41E__) <br>
+[Registro en BD desde dispositivo movil](https://youtu.be/-usS3_-zWVg?si=995YbpdDemjoEQG8)
 <br>
 
 # Histórico
 
-19/05/2024 - ⚠️ Pendiente de implementar ⚠️ Crear grupos y poder enviar y recibir mensajes entre los integrantes del grupo
+--/--/2024 - ⚠️ Pendiente de implementar ⚠️ Crear grupos y poder enviar y recibir mensajes entre los integrantes del grupo
 
-10/05/2024 - ⚠️ Pendiente de implementar ⚠️ Posible CheckPoint 1
+--/--/2024 - ⚠️ CheckPoint 1 ⚠️ 
 
-05/05/2024 - ⚠️ Pendiente de implementar ⚠️ Enviar y recibir mensajes entre contactos
+--/--/2024 - ⚠️ Pendiente de implementar ⚠️ Enviar y recibir mensajes entre contactos
 
-02/05/2024 - ⚠️ Pendiente de implementar ⚠️ Implementación de la funcionalidad de las notificaciones
+--/--/2024 - ⚠️ Pendiente de implementar ⚠️ Implementación de la funcionalidad de las notificaciones
 
-28/04/2024 - ⚠️ Pendiente de implementar ⚠️ Crear cuenta e inciar sesión y que se guarde en la base de datos
+--/--/2024 - ⚠️ Pendiente de implementar ⚠️ Crear cuenta e inciar sesión y que se guarde en la base de datos
+
+02/05/2024 - Implementación de registrar usuarios en C# e intentando enviar los datos del dispositivo movil al servidor
 
 25/04/2024 - Implementación de vista iniciar sesión, registrarse y pantalla principal (Aún implementandolo)
 
