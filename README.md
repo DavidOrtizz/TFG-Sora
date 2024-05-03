@@ -38,6 +38,8 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 
 --/--/2024 - ⚠️ Pendiente de implementar ⚠️ Crear cuenta e inciar sesión y que se guarde en la base de datos
 
+03/05/2024 - Optimización del código y arreglo en registrar usuario que ya funciona por parte del servidor
+
 02/05/2024 - Implementación de registrar usuarios en C# e intentando enviar los datos del dispositivo movil al servidor
 
 25/04/2024 - Implementación de vista iniciar sesión, registrarse y pantalla principal (Aún implementandolo)
