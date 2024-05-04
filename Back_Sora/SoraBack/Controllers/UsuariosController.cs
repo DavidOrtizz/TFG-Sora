@@ -37,7 +37,15 @@ namespace SoraBack.Controllers
                 Contrasena = usuario.Contrasena,
                 Rol = "USUARIO"
             });
-            return resultado ? Ok() : BadRequest();
+
+            if (resultado)
+            {
+                return Ok(new { mensaje = "Usuario registrado correctamente" });
+            }
+            else
+            {
+                return BadRequest(new { mensaje = "Error al registrar usuario" });
+            }
         }
     }
 }

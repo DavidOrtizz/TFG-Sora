@@ -19,9 +19,13 @@
     <string name="registrate">¿No estás registrado?</string>
     <string name="estasRegistrado">¿Estás registrado?</string>
     <string name="registrarse">Registrate</string>
+    <string name="introduceNombre">El nombre de cuenta no puede estar vacío</string>
+    <string name="introduceCorreo">El correo no puede estar vacío</string>
+    <string name="introduceContrasena">La contraseña no puede estar vacía</string>
     <string name="repetirContrasena">Repite la contraseña</string>
     <string name="btnRegistrarse">Registrarse</string>
 
     <string name="errorRegistrarse">Ha ocurrido un error al registrarse</string>
     <string name="errorContrasena">Las contraseñas no coinciden</string>
+    <string name="exitoRegistro">Te has registrado con éxito</string>
 </resources>
