@@ -17,7 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textStyle="bold"
         android:textSize="30sp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
@@ -29,7 +30,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIniciarSesion">
+        app:layout_constraintTop_toBottomOf="@+id/textViewIniciarSesion"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white">
 
         <EditText
             android:id="@+id/textNombreUsuario"
@@ -47,7 +50,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="350dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white">
 
         <EditText
             android:id="@+id/textContrasena"
@@ -83,6 +88,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.856"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/white"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

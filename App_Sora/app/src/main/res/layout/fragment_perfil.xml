@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".PerfilFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:id="@+id/imageView_Icono"
         android:layout_width="125dp"
@@ -23,7 +22,8 @@
         android:layout_marginTop="75dp"
         android:layout_marginLeft="170dp"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textView_NombreCuenta"
@@ -31,7 +31,8 @@
         android:layout_height="wrap_content"
         android:text="@string/nombreCuenta"
         android:layout_marginTop="105dp"
-        android:layout_marginLeft="171dp" />
+        android:layout_marginLeft="171dp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textViewSobreMi"
@@ -40,7 +41,8 @@
         android:text="@string/sobreMi"
         android:layout_marginTop="170dp"
         android:layout_marginLeft="30dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textViewContenidoSobreMi"
@@ -48,17 +50,8 @@
         android:layout_height="wrap_content"
         android:text="Prueba descripción"
         android:layout_marginTop="195dp"
-        android:layout_marginLeft="30dp" />
-
-    <Button
-        android:id="@+id/buttonCerrarSesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="90dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/cerrarSesion"/>
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/white"/>
 
     <ImageButton
         android:id="@+id/imageButtonAjustes"
@@ -67,7 +60,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/icono_ajustes" />
+        android:background="@drawable/icono_ajustes"
+        android:backgroundTint="@color/white"/>
 
 
 </RelativeLayout>

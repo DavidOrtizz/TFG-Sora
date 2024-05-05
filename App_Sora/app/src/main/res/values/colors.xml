@@ -6,6 +6,9 @@
 
 
     <color name="fondo_menu">#2c2d35</color>
+    <color name="fondo_menu_oscuro">#1e1f22</color>
     <color name="fondo_oscuro">#1c1d23</color>
     <color name="colorIcono_celeste">#07c6fd</color>
+
+    <color name="verde">#18D234</color>
 </resources>
