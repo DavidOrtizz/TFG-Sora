@@ -82,13 +82,13 @@ class RegistrarseActivity : AppCompatActivity() {
                             val registerRequest = object : StringRequest(Request.Method.POST, Constants.URL_REGISTER, Response.Listener {
                                 response ->
                                     try {
-                                        Log.d("RegistrarseActivity", "Respuesta del servidor: $response")
+//                                        Log.d("RegistrarseActivity", "Respuesta del servidor: $response")
 
                                         // Procesar la respuesta del servidor
                                         val jsonResponse = JSONObject(response)
                                         val mensaje = jsonResponse.getString("mensaje")
 
-                                        Log.d("RegistrarseActivity", "Mensaje recibido: $mensaje")
+//                                        Log.d("RegistrarseActivity", "Mensaje recibido: $mensaje")
 
                                         if (mensaje == "Usuario registrado correctamente") {
                                             // Registro exitoso
@@ -106,11 +106,10 @@ class RegistrarseActivity : AppCompatActivity() {
                                 Response.ErrorListener { error ->
                                     error.printStackTrace()
                                     // Manejar errores de la solicitud
-                                    Toast.makeText(this, "Error en la solicitud: " + error.message, Toast.LENGTH_SHORT).show()
-                                    Log.d("RegistrarseActivity", error.toString())
+                                    Toast.makeText(this, R.string.errorRegistrarse, Toast.LENGTH_SHORT).show()
+//                                    Log.d("RegistrarseActivity", error.toString())
                                 }) {
                                 override fun getBody(): ByteArray {
-                                    // Obtener el cuerpo de la solicitud como un array de bytes
                                     return jsonObject.toString().toByteArray()
                                 }
 
@@ -118,8 +117,7 @@ class RegistrarseActivity : AppCompatActivity() {
                                     return "application/json; charset=utf-8"
                                 }
                             }
-
-                                // Agregar la solicitud a la cola de solicitudes
+                                // Agregar la solicitud a la cola
                                 queue.add(registerRequest)
 
                         } else {
@@ -140,7 +138,7 @@ class RegistrarseActivity : AppCompatActivity() {
             }
         }
 
-
+        // Si estas registrado que te vuelva a mandar al menu de iniciar sesión
         btnIniciar.setOnClickListener {
             startActivity(intent)
             finish()

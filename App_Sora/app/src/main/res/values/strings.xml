@@ -28,4 +28,8 @@
     <string name="errorRegistrarse">Ha ocurrido un error al registrarse</string>
     <string name="errorContrasena">Las contraseñas no coinciden</string>
     <string name="exitoRegistro">Te has registrado con éxito</string>
+    <string name="errorServidor">El servidor se encuentra desconectado</string>
+    <string name="errorCorreo">Correo electrónico en uso</string>
+    <string name="errorInicioSesion">Error al iniciar sesión</string>
+    <string name="exitoIniciarSesion">Inicio de sesión</string>
 </resources>

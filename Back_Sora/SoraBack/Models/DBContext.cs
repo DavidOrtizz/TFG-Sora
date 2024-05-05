@@ -25,22 +25,27 @@ namespace SoraBack.Models
         {
             bool guardado = false;
 
-            Usuarios.Add(usuario);
-            guardado = SaveChanges() > 0;
+            if (Usuarios.FirstOrDefault(usuarioin => usuarioin.Correo.ToLower() == usuario.Correo.ToLower()) == null)
+            {
+                Usuarios.Add(usuario);
+                guardado = SaveChanges() > 0;
+            }
 
             return guardado;
         }
 
         public Usuario IniciarUsuario(string correo, string contrasena)
         {
-            Usuario usuario = Usuarios.FirstOrDefault(usuario => usuario.Correo.ToLower() == correo.ToLower() && usuario.Contrasena == contrasena);
+            Usuario usuario = Usuarios.FirstOrDefault(u => u.Correo.ToLower() == correo.ToLower());
 
             if (usuario != null)
             {
-                return usuario;
+                if (usuario.Contrasena == contrasena)
+                {
+                    return usuario;
+                }
             }
-
-            return usuario;
+            return null;
         }
     }
 }

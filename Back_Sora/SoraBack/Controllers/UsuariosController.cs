@@ -47,5 +47,22 @@ namespace SoraBack.Controllers
                 return BadRequest(new { mensaje = "Error al registrar usuario" });
             }
         }
+
+        [AllowAnonymous]
+        [HttpPost("login")]
+        public IActionResult IniciarSesion([FromBody] Usuario usuario)
+        {
+            // Comprueba si el usuario existe en la base de datos
+            var usuarioEncontrado = _dbContext.Usuarios.FirstOrDefault(u => u.Correo.ToLower() == usuario.Correo.ToLower());
+
+            if (usuarioEncontrado != null && usuarioEncontrado.Contrasena == usuario.Contrasena)
+            {
+                return Ok(new { mensaje = "Inicio de sesión" });
+            }
+            else
+            {
+                return BadRequest(new { mensaje = "Error al iniciar sesión" });
+            }
+        }
     }
 }
