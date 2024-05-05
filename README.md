@@ -38,7 +38,10 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 
 --/--/2024 - ⚠️ Pendiente de implementar ⚠️ Crear cuenta e inciar sesión y que se guarde en la base de datos
 
-04/05/2024 - Implementación de registrar usuario totalmente funcionable. (Ya envia los datos al servidor y se guardan en la base de datos del servidor)
+05/05/2024 - Implementación de iniciar sesión del usuario totalmente funcionable por parte del servidor y de la aplicación movil
+
+04/05/2024 - Implementación de registrar usuario totalmente funcionable. (Ya envia los datos al servidor y se guardan en la base de datos del servidor).
+Tambien he tenido que implementar una clase en Android para crear una conexión HTTPS que ignora la validación del certificado SSL
 
 03/05/2024 - Optimización del código y arreglo en registrar usuario que ya funciona por parte del servidor
 
