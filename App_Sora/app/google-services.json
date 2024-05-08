@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "117402603729",
+    "project_id": "sora-badda",
+    "storage_bucket": "sora-badda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117402603729:android:16e42e3152ba2a8fb5f5f0",
+        "android_client_info": {
+          "package_name": "com.example.sora"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjOjOW38w7FEUihczrt0KjDgDLP6nL5zs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Recursos;
 using SoraBack.Models;
 using SoraBack.Models.Entities;
+using System.Security;
 
 namespace SoraBack.Controllers
 {
@@ -34,7 +36,7 @@ namespace SoraBack.Controllers
                 NombreCuenta = usuario.NombreCuenta,
                 NombreUsuario = usuario.NombreUsuario,
                 Correo = usuario.Correo.ToLower(),
-                Contrasena = usuario.Contrasena,
+                Contrasena = PasswordHelper.Hash(usuario.Contrasena),
                 Rol = "USUARIO"
             });
 
@@ -53,16 +55,14 @@ namespace SoraBack.Controllers
         public IActionResult IniciarSesion([FromBody] Usuario usuario)
         {
             // Comprueba si el usuario existe en la base de datos
-            var usuarioEncontrado = _dbContext.Usuarios.FirstOrDefault(u => u.Correo.ToLower() == usuario.Correo.ToLower());
+            var usuarioEncontrado = _dbContext.IniciarUsuario(usuario.Correo.ToLower(), PasswordHelper.Hash(usuario.Contrasena));
 
-            if (usuarioEncontrado != null && usuarioEncontrado.Contrasena == usuario.Contrasena)
+            if (usuarioEncontrado != null)
             {
                 return Ok(new { mensaje = "Inicio de sesión" });
             }
-            else
-            {
+
                 return BadRequest(new { mensaje = "Error al iniciar sesión" });
-            }
         }
     }
 }

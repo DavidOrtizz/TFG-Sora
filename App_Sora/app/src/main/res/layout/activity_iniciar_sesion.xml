@@ -17,7 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textStyle="bold"
         android:textSize="30sp"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="100dp"
+        android:textColor="@color/white"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
@@ -51,9 +52,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
         android:textColorHint="@color/white"
-        app:hintTextColor="@color/white">
+        app:hintTextColor="@color/white"
+        app:endIconMode="password_toggle">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textContrasena"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

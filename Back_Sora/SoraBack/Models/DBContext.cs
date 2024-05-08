@@ -36,15 +36,13 @@ namespace SoraBack.Models
 
         public Usuario IniciarUsuario(string correo, string contrasena)
         {
-            Usuario usuario = Usuarios.FirstOrDefault(u => u.Correo.ToLower() == correo.ToLower());
+            Usuario usuario = Usuarios.FirstOrDefault(u => u.Correo.ToLower() == correo.ToLower() && u.Contrasena == contrasena);
 
             if (usuario != null)
             {
-                if (usuario.Contrasena == contrasena)
-                {
                     return usuario;
-                }
             }
+
             return null;
         }
     }
