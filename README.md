@@ -23,8 +23,9 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 
 # Bibliografía
 [Android Studio - Bottom Navigation View](https://youtu.be/rm9NGA9UBXs?si=w4DWKEcbEMt41E__) <br>
-[Registro en BD desde dispositivo movil](https://youtu.be/-usS3_-zWVg?si=995YbpdDemjoEQG8)
-<br>
+[Registro en BD desde dispositivo movil](https://youtu.be/-usS3_-zWVg?si=995YbpdDemjoEQG8) <br>
+[Login desde dispositivo movil](https://youtu.be/-usS3_-zWVg?si=ftlteZrN1zD8Lrul) <br>
+[Documentación Firebase](https://firebase.google.com/docs?hl=es) <br>
 
 # Histórico
 
@@ -37,6 +38,15 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 --/--/2024 - ⚠️ Pendiente de implementar ⚠️ Implementación de la funcionalidad de las notificaciones
 
 --/--/2024 - ⚠️ Pendiente de implementar ⚠️ Crear cuenta e inciar sesión y que se guarde en la base de datos
+
+08/05/2024 - Hoy he implementado el uso de hash para protejer la seguridad al ver los datos del servidor.
+![image](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/d4a85989-20b1-425f-af0c-749b8ddfe496)
+
+Tambien he implementado una pequeña mejora en la interfaz para ver y ocultar la contraseña con un simple botón.
+![image](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/38d6e888-2500-479b-89c8-d37049b5ce89)
+![image](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/265a2af0-c6cf-4783-92b6-b12f1c7934ea)
+
+Tambien he estado investigando el uso de Firebase para que la aplicación mande los datos a firebase y de firebase al servidor
 
 05/05/2024 - Implementación de iniciar sesión del usuario totalmente funcionable por parte del servidor y de la aplicación movil.
 También he añadido mejoras en la interfaz y arreglos de algunas cosas que tenía mal
