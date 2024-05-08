@@ -29,16 +29,6 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 
 # Histórico
 
---/--/2024 - ⚠️ Pendiente de implementar ⚠️ Crear grupos y poder enviar y recibir mensajes entre los integrantes del grupo
-
---/--/2024 - ⚠️ CheckPoint 1 ⚠️ 
-
---/--/2024 - ⚠️ Pendiente de implementar ⚠️ Enviar y recibir mensajes entre contactos
-
---/--/2024 - ⚠️ Pendiente de implementar ⚠️ Implementación de la funcionalidad de las notificaciones
-
---/--/2024 - ⚠️ Pendiente de implementar ⚠️ Crear cuenta e inciar sesión y que se guarde en la base de datos
-
 08/05/2024 - Hoy he implementado el uso de hash para protejer la seguridad al ver los datos del servidor.
 ![image](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/d4a85989-20b1-425f-af0c-749b8ddfe496)
 
