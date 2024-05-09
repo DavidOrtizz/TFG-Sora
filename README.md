@@ -6,26 +6,7 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 <br>
 
 <h2>Mockup</h2>
-
-![DiseñoApp](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/e8ae6ef7-7858-4e31-b624-cc291a6dbc08) <br>
-Este mockup lo he creado desde Excalidraw. Aquí se puede llegar a ver todas las pestañas en total que tendrá en la aplicación.
-Será una aplicación accesible para todos los usuarios y muy facil de usar y entender, con los botones mínimos para 
-que no sea muy complicado entender el funcionamiento de la app. <br>
-Todos los usuarios podrán acceder a todas las pestañas y solo el administrador del grupo podrá acceder a una extra para modificar nombre e icono del grupo.
-Aunque en el diseño se vea de color blanco la aplicación no es de ese color. Utilizará unos colores oscuros pero que sean faciles de 
-distingir dentro de la app. <br>
-El porqué de estos colores es porque creo llega a ayudar a que se vea mas minimalista y elegante a la vez que ayuda a no cansar la vista 
-cuando se está usando la aplicación por la noche.
-Aquí unas capturas de la app como ejemplo: <br>
-<br>
-<b>Captura desde el menú inicial</b> <br>
-![Captura menu principal](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/f94d8e03-8391-4a41-b5d3-d9383edfcd2b) <br>
-
-<br>
-<b>Captura desde la pestaña de contactos</b> <br>
-
-![Captura desde la pesataña contactos](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/27aa19e8-c2f4-42ef-b576-7aaa4973002d) <br>
-
+https://iridescent-mouth-151.notion.site/Mockup-9050c3a96aa34ea7a29283d1f3133e90?pvs=4 <br>
 
 <br>
 
