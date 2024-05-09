@@ -18,13 +18,13 @@ El porqué de estos colores es porque creo llega a ayudar a que se vea mas minim
 cuando se está usando la aplicación por la noche.
 Aquí unas capturas de la app como ejemplo: <br>
 <br>
-<b>Captura desde el menú inicial</b>
-![Captura menu principal](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/08cd5ccf-cb2c-44e0-ba0a-dfbabb37ea28) <br>
+<b>Captura desde el menú inicial</b> <br>
+![Captura menu principal](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/f94d8e03-8391-4a41-b5d3-d9383edfcd2b) <br>
 
-<b>Captura desde la pestaña de contactos</b>
-![Captura desde la pesataña contactos](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/f9944380-d312-4a20-87e0-45c0f5a13bcd) <br>
+<br>
+<b>Captura desde la pestaña de contactos</b> <br>
 
-
+![Captura desde la pesataña contactos](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/27aa19e8-c2f4-42ef-b576-7aaa4973002d) <br>
 
 
 <br>
