@@ -5,6 +5,30 @@ como números de teléfono u otra información sensible.
 Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087cdab347efbf33962287ac45c3?pvs=4
 <br>
 
+<h2>Mockup</h2>
+
+![DiseñoApp](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/e8ae6ef7-7858-4e31-b624-cc291a6dbc08) <br>
+Este mockup lo he creado desde Excalidraw. Aquí se puede llegar a ver todas las pestañas en total que tendrá en la aplicación.
+Será una aplicación accesible para todos los usuarios y muy facil de usar y entender, con los botones mínimos para 
+que no sea muy complicado entender el funcionamiento de la app. <br>
+Todos los usuarios podrán acceder a todas las pestañas y solo el administrador del grupo podrá acceder a una extra para modificar nombre e icono del grupo.
+Aunque en el diseño se vea de color blanco la aplicación no es de ese color. Utilizará unos colores oscuros pero que sean faciles de 
+distingir dentro de la app. <br>
+El porqué de estos colores es porque creo llega a ayudar a que se vea mas minimalista y elegante a la vez que ayuda a no cansar la vista 
+cuando se está usando la aplicación por la noche.
+Aquí unas capturas de la app como ejemplo: <br>
+<br>
+<b>Captura desde el menú inicial</b>
+![Captura menu principal](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/08cd5ccf-cb2c-44e0-ba0a-dfbabb37ea28) <br>
+
+<b>Captura desde la pestaña de contactos</b>
+![Captura desde la pesataña contactos](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/f9944380-d312-4a20-87e0-45c0f5a13bcd) <br>
+
+
+
+
+<br>
+
 # Enlace  de descarga
 
 <br>
@@ -32,7 +56,7 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 08/05/2024 - Hoy he implementado el uso de hash para protejer la seguridad al ver los datos del servidor.
 ![image](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/d4a85989-20b1-425f-af0c-749b8ddfe496)
 
-Tambien he implementado una pequeña mejora en la interfaz para ver y ocultar la contraseña con un simple botón.
+Tambien he implementado una pequeña mejora en la interfaz para ver y ocultar la contraseña con un simple botón. <br>
 ![image](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/38d6e888-2500-479b-89c8-d37049b5ce89)
 ![image](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/265a2af0-c6cf-4783-92b6-b12f1c7934ea)
 
