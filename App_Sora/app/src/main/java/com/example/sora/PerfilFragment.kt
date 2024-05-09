@@ -1,10 +1,12 @@
 package com.example.sora
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +35,17 @@ class PerfilFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false)
+        val vista = inflater.inflate(R.layout.fragment_perfil, container, false)
+
+        val intentAjustes = Intent(requireContext(), AjustesActivity::class.java)
+        val btnAjustes = vista.findViewById<ImageButton>(R.id.imageButtonAjustes)
+
+        // Ir a la pestaña de ajustes
+        btnAjustes.setOnClickListener {
+            activity?.startActivity(intentAjustes)
+        }
+
+        return vista
     }
 
     companion object {

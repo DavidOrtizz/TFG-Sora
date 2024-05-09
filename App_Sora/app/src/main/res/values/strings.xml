@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sora</string>
+    <string name="app_name" translatable="false">Sora</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="BottonGrupos">Grupos</string>
@@ -38,4 +38,9 @@
     <string name="errorCorreo">Correo electrónico en uso</string>
     <string name="errorInicioSesion">Error al iniciar sesión</string>
     <string name="exitoIniciarSesion">Inicio de sesión</string>
+    <string name="modoVista">Has entrado en modo vista</string>
+
+    <string name="cambiarIcono">Cambiar icono</string>
+    <string name="modificarNombrePerfil">Cambiar nombre</string>
+    <string name="modificarDescripcionPerfil">Modificar la descripción</string>
 </resources>

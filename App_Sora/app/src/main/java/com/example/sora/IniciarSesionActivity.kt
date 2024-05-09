@@ -41,6 +41,14 @@ class IniciarSesionActivity : AppCompatActivity() {
             val correo = eCorreo.text.toString()
             val contrasena = eContrasena.text.toString()
 
+            // Poder acceder al interior de la app sin necesidad de que el servidor esté activo.
+            // Esto lo he añadido para que no sea necesario descargar y configurar el servidor back
+            if(correo.lowercase() == "sora" && contrasena == "1234"){
+                Toast.makeText(this, R.string.modoVista, Toast.LENGTH_SHORT).show()
+                startActivity(intentIniciarSesion)
+                finish()
+            }
+
             val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
             val queue = Volley.newRequestQueue(this, sslSocketFactory)
 

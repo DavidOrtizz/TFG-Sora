@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sora</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="BottonGrupos">Group</string>
     <string name="BottonContactos">Contacs</string>
@@ -13,4 +12,29 @@
     <string name="presentacion">Welcome to Sora</string>
     <string name="iniciarSesion">Log In</string>
     <string name="contrasena">Password</string>
+    <string name="correo">Email</string>
+    <string name="registrate">Not registered?</string>
+    <string name="estasRegistrado">Are you registered?</string>
+    <string name="registrarse">Sign up</string>
+    <string name="introduceNombre">Account name can\'t be empty</string>
+    <string name="introduceCorreo">The email cannot be empty</string>
+    <string name="introduceContrasena">Password cannot be empty</string>
+    <string name="repetirContrasena">Repeat password</string>
+    <string name="btnRegistrarse">Sign in</string>
+    <string name="agregarAmigo">" Add contact"</string>
+    <string name="agregarGrupo">Add group</string>
+    <string name="buscar">Search</string>
+    <string name="modificarPerfil">Profile settings</string>
+    <string name="guardar">Save</string>
+    <string name="errorRegistrarse">An error occurred while registering</string>
+    <string name="errorContrasena">Passwords do not match</string>
+    <string name="exitoRegistro">You have successfully registered</string>
+    <string name="errorServidor">The server is offline</string>
+    <string name="errorCorreo">Email in use</string>
+    <string name="errorInicioSesion">Failed to login</string>
+    <string name="exitoIniciarSesion">Login</string>
+    <string name="modoVista">View mode</string>
+    <string name="cambiarIcono">Change icon</string>
+    <string name="modificarNombrePerfil">Change name</string>
+    <string name="modificarDescripcionPerfil">Modify the description</string>
 </resources>

@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+        val cargarMenu = intent.getStringExtra("cargarMenu")
         val navigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -41,10 +42,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Fragmen que se ejecuta por defecto
-        loadFragment(contactosFragment)
-        // Selecciona el elemento del menú correspondiente al fragmento de Contactos
-        navigation.selectedItemId = R.id.contactosFragment
+        // Control de los fragments
+        if (cargarMenu == null){
+            // Selecciona por defecto el fragmento de Contactos
+            navigation.selectedItemId = R.id.contactosFragment
+        } else if (cargarMenu == "Perfil"){
+            navigation.selectedItemId = R.id.perfilFragment
+        }
     }
 
     private fun loadFragment(fragment: Fragment) {
