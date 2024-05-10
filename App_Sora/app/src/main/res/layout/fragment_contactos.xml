@@ -26,6 +26,7 @@
         android:layout_height="41dp"
         android:layout_marginTop="10dp"
         android:text="@string/agregarAmigo"
+        android:layout_marginRight="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toEndOf="@+id/textViewTitulo"

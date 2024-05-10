@@ -28,7 +28,7 @@
     <string name="agregarAmigo">Añadir contacto</string>
     <string name="agregarGrupo">Añadir grupo</string>
     <string name="buscar">Buscar</string>
-    <string name="modificarPerfil">Ajustes de perfil</string>
+    <string name="modificarPerfil">Ajustes</string>
     <string name="guardar">Guardar</string>
 
     <string name="errorRegistrarse">Ha ocurrido un error al registrarse</string>
