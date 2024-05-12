@@ -51,6 +51,8 @@ Enlace para poder ver el video explicatorio: https://youtu.be/Dl5yziEjEYs
 [Registro en BD desde dispositivo movil](https://youtu.be/-usS3_-zWVg?si=995YbpdDemjoEQG8) <br>
 [Login desde dispositivo movil](https://youtu.be/-usS3_-zWVg?si=ftlteZrN1zD8Lrul) <br>
 [Documentación Firebase](https://firebase.google.com/docs?hl=es) <br>
+[Documentacion JWT](https://drive.google.com/file/d/1WxxYBQWPNJbd1GKXZpeGyRI8EdqhTKY9/view?usp=sharing) <br>
+[SharedPreference](https://youtu.be/-ifRCo1MQ3g?si=oz6Ah3378Y61Ynub) <br>
 
 # Histórico
 https://iridescent-mouth-151.notion.site/Diario-bf14cc3d327c4c48b455575e9ace07bc?pvs=4
