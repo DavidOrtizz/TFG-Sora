@@ -37,6 +37,7 @@ class IniciarSesionActivity : AppCompatActivity() {
         val eContrasena = findViewById<EditText>(R.id.textContrasena)
         val btnIniciarSesion = findViewById<Button>(R.id.buttonIniciarSesion)
         val btnRegistrarse = findViewById<TextView>(R.id.textViewRegistrarse)
+        var modoVista = false
 
         btnIniciarSesion.setOnClickListener {
             val correo = eCorreo.text.toString()
@@ -46,6 +47,7 @@ class IniciarSesionActivity : AppCompatActivity() {
             // Esto lo he añadido para que no sea necesario descargar y configurar el servidor back
             if(correo.lowercase() == "sora" && contrasena == "1234"){
                 Toast.makeText(this, R.string.modoVista, Toast.LENGTH_SHORT).show()
+                modoVista = true
                 startActivity(intentIniciarSesion)
                 finish()
             }
@@ -77,10 +79,12 @@ class IniciarSesionActivity : AppCompatActivity() {
                         finish()
                 },
                 Response.ErrorListener { error ->
-                    error.printStackTrace()
-                    // Manejar errores de la solicitud
-                    Toast.makeText(this, R.string.errorInicioSesion, Toast.LENGTH_SHORT).show()
-                    Log.d("IniciarSesionActivity", error.toString())
+                    if (!modoVista){
+                        error.printStackTrace()
+                        // Manejar errores de la solicitud
+                        Toast.makeText(this, R.string.errorInicioSesion, Toast.LENGTH_SHORT).show()
+                        Log.d("IniciarSesionActivity", error.toString())
+                    }
                 }) {
                 override fun getHeaders(): Map<String, String> {
                     val headers = HashMap<String, String>()
