@@ -1,5 +1,6 @@
 package com.example.sora
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -58,22 +59,22 @@ class IniciarSesionActivity : AppCompatActivity() {
 
             val loginRequest = object : JsonObjectRequest(Request.Method.POST, Constants.URL_LOGIN, jsonBody, Response.Listener {
                 response ->
-//                Log.d("IniciarSesionActivity", "Respuesta del servidor: $response")
+                    val token = response.getString("token")
+                    val nombreUsuario = response.getString("nombreUsuario")
+                    val nombreCuenta = response.getString("nombreCuenta")
+                    val descripcion = response.getString("descripcion")
 
-                    val mensaje = response.getString("mensaje")
-
-//                Log.d("IniciarSesionActivity", "Mensaje recibido: $mensaje")
-
-
-                    if (mensaje == "Inicio de sesión") {
+                    val sharedPreferences = getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
+                    sharedPreferences.edit().apply {
+                        putString("token", token)
+                        putString("nombreUsuario", nombreUsuario)
+                        putString("nombreCuenta", nombreCuenta)
+                        putString("descripcion", descripcion)
+                        apply()
+                    }
                         Toast.makeText(this, R.string.exitoIniciarSesion, Toast.LENGTH_SHORT).show()
                         startActivity(intentIniciarSesion)
                         finish()
-
-                    } else {
-                        // Mostrar mensaje de error
-                        Toast.makeText(this, R.string.errorInicioSesion, Toast.LENGTH_SHORT).show()
-                    }
                 },
                 Response.ErrorListener { error ->
                     error.printStackTrace()

@@ -1,10 +1,15 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Recursos;
 using SoraBack.Models;
 using SoraBack.Models.Entities;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security;
+using System.Security.Claims;
 
 namespace SoraBack.Controllers
 {
@@ -14,9 +19,13 @@ namespace SoraBack.Controllers
     {
         private readonly DBContext _dbContext;
 
-        public UsuariosController(DBContext dbContext)
+        // Obtenemos por inyección los parámetros preestablecios para crear los token
+        private readonly TokenValidationParameters _tokenParameters;
+
+        public UsuariosController(DBContext dbContext, IOptionsMonitor<JwtBearerOptions> jwtOptions)
         {
             _dbContext = dbContext;
+            _tokenParameters = jwtOptions.Get(JwtBearerDefaults.AuthenticationScheme).TokenValidationParameters;
         }
 
 
@@ -59,10 +68,37 @@ namespace SoraBack.Controllers
 
             if (usuarioEncontrado != null)
             {
-                return Ok(new { mensaje = "Inicio de sesión" });
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    // Aqui se anade los datos para autorizar al usuario
+                    Claims = new Dictionary<string, object>
+                    {
+                        { "id", usuario.UsuarioId },
+                        { ClaimTypes.Role, usuario.Rol}
+                    },
+                    // Aqui indicamos cuando cuando caduca el token
+                    Expires = DateTime.UtcNow.AddDays(30),
+                    // Aqui especificamos nuestra clave y el algoritmo de firmado
+                    SigningCredentials = new SigningCredentials(
+                        _tokenParameters.IssuerSigningKey,
+                        SecurityAlgorithms.HmacSha256Signature)
+                };
+                // Creamos el token y se lo devolvemos al usuario loggeado
+                JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+                SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
+                string stringToken = tokenHandler.WriteToken(token);
+
+                // Devolvemos el token y unos datos adicionales
+                return Ok(new
+                {
+                    token = stringToken,
+                    nombreUsuario = usuarioEncontrado.NombreUsuario,
+                    nombreCuenta = usuarioEncontrado.NombreCuenta,
+                    descripcion = usuarioEncontrado.Descripcion
+                });
             }
 
-                return BadRequest(new { mensaje = "Error al iniciar sesión" });
+            return Unauthorized();
         }
     }
 }
