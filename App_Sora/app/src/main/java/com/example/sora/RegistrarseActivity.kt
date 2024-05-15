@@ -57,6 +57,7 @@ class RegistrarseActivity : AppCompatActivity() {
             val correo = eCorreo.text.toString()
             val contrasena = eContrasena.text.toString()
             val repiteContrasena = eRepiteContrasena.text.toString()
+            val descripcion = ""
             val rol = "USUARIO"
 
             Log.d("RegistrarseActivity", "Datos: Nombre de cuenta: $nombreCuenta, Correo: $correo, Contraseña: $contrasena, Repite Contraseña: $repiteContrasena")
@@ -76,6 +77,7 @@ class RegistrarseActivity : AppCompatActivity() {
                             jsonObject.put("NombreUsuario", nombreUsuario)
                             jsonObject.put("Correo", correo)
                             jsonObject.put("Contrasena", contrasena)
+                            jsonObject.put("Descripcion", descripcion)
                             jsonObject.put("Rol", rol)
 
                             // Crear la solicitud de registro

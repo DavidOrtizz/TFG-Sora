@@ -25,7 +25,11 @@ namespace SoraBack.Models
         {
             bool guardado = false;
 
-            if (Usuarios.FirstOrDefault(usuarioin => usuarioin.Correo.ToLower() == usuario.Correo.ToLower()) == null)
+            var exiteCorreo = Usuarios.FirstOrDefault(usuarioin => usuarioin.Correo.ToLower() == usuario.Correo.ToLower());
+
+            var exiteNombre = Usuarios.FirstOrDefault(usuarioin => usuarioin.NombreCuenta.ToLower() == usuario.NombreCuenta.ToLower());
+
+            if (exiteCorreo == null && exiteNombre == null)
             {
                 Usuarios.Add(usuario);
                 guardado = SaveChanges() > 0;

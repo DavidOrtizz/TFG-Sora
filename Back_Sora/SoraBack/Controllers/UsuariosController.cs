@@ -40,12 +40,15 @@ namespace SoraBack.Controllers
         [HttpPost("signup")]
         public IActionResult RegistrarUsuario([FromBody] Usuario usuario)
         {
+            var usuarioEncontrado = _dbContext.IniciarUsuario(usuario.Correo.ToLower(), PasswordHelper.Hash(usuario.Contrasena));
+
             bool resultado = _dbContext.RegistrarUsuario(new Usuario
             {
                 NombreCuenta = usuario.NombreCuenta,
                 NombreUsuario = usuario.NombreUsuario,
                 Correo = usuario.Correo.ToLower(),
                 Contrasena = PasswordHelper.Hash(usuario.Contrasena),
+                Descripcion = usuario.Descripcion,
                 Rol = "USUARIO"
             });
 

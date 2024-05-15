@@ -1,5 +1,6 @@
 package com.example.sora
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,8 +39,26 @@ class PerfilFragment : Fragment() {
     ): View? {
         val vista = inflater.inflate(R.layout.fragment_perfil, container, false)
 
+        val context = requireContext()
+
+        // Recuperar datos del usuario
+        val sharedPreferences = context.getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
+        val token = sharedPreferences.getString("token",null)
+        val nombreUsuario = sharedPreferences.getString("nombreUsuario", null)
+        val nombreCuenta = sharedPreferences.getString("nombreCuenta", null)
+        val descripcion = sharedPreferences.getString("descripcion", null)
+
         val intentAjustes = Intent(requireContext(), AjustesActivity::class.java)
         val btnAjustes = vista.findViewById<ImageButton>(R.id.imageButtonAjustes)
+        val txtNombreUsuario = vista.findViewById<TextView>(R.id.textView_NombreUsuario)
+        val txtNombreCuenta = vista.findViewById<TextView>(R.id.textView_NombreCuenta)
+        val txtDescripcion = vista.findViewById<TextView>(R.id.textViewContenidoSobreMi)
+
+        if (token != null){
+            txtNombreUsuario.setText(nombreUsuario)
+            txtNombreCuenta.setText(nombreCuenta)
+            txtDescripcion.setText(descripcion)
+        }
 
         // Ir a la pestaña de ajustes
         btnAjustes.setOnClickListener {
