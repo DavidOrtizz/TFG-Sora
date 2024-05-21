@@ -49,5 +49,10 @@ namespace SoraBack.Models
 
             return null;
         }
+
+        public Usuario EncontrarUsuario(string nombreCuenta)
+        {
+            return Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == nombreCuenta.ToLower());
+        }
     }
 }

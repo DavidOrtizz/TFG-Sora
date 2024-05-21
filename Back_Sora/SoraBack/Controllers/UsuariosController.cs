@@ -103,5 +103,52 @@ namespace SoraBack.Controllers
 
             return Unauthorized();
         }
-    }
+
+        [AllowAnonymous]
+        [HttpPost("buscarUsuario")]
+        public IActionResult BuscarUsuario([FromBody] Usuario usuario)
+        {
+            // Comprobar si se ha introducido algún dato
+            if (usuario == null || string.IsNullOrEmpty(usuario.NombreCuenta))
+            {
+                return BadRequest(new { mensaje = "No se han proporcionado datos" });
+            }
+
+            // Buscar los usuarios que coincidan con las letras propocionadas
+            var usuariosEncontrados = _dbContext.Usuarios
+                .Where(u => u.NombreCuenta.ToLower().StartsWith(usuario.NombreCuenta.ToLower()))
+                .Select(u => new
+                {
+                    NombreUsuario = u.NombreUsuario,
+                    NombreCuenta = u.NombreCuenta
+                })
+                .ToList();
+
+            // Devuelve la lista de usuarios encontrados
+            if (usuariosEncontrados.Any())
+            {
+                return Ok(usuariosEncontrados);
+            }
+
+            return BadRequest(new { mensaje = "No se encontraron usuarios" });
+        }
+
+        [AllowAnonymous]
+        [HttpGet("obtenerUsuario")]
+        public IActionResult ObtenerUsuario([FromBody] Usuario usuario)
+        {
+            var usuarioEncontrado = _dbContext.EncontrarUsuario(usuario.NombreCuenta.ToLower());
+            if (usuarioEncontrado != null)
+            {
+                return Ok(new
+                    {
+                        nombreUsuario = usuarioEncontrado.NombreUsuario,
+                        nombreCuenta = usuarioEncontrado.NombreCuenta,
+                        descripcion = usuarioEncontrado.Descripcion
+                    }
+                );
+            }
+
+            return BadRequest(new { mensaje = "No se ha encontrado el usuario" });
+        }
 }
