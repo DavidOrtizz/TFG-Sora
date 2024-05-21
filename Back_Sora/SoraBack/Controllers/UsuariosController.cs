@@ -134,7 +134,7 @@ namespace SoraBack.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("obtenerUsuario")]
+        [HttpGet("obtenerDatosUsuario")]
         public IActionResult ObtenerUsuario([FromBody] Usuario usuario)
         {
             var usuarioEncontrado = _dbContext.EncontrarUsuario(usuario.NombreCuenta.ToLower());
