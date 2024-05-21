@@ -151,4 +151,5 @@ namespace SoraBack.Controllers
 
             return BadRequest(new { mensaje = "No se ha encontrado el usuario" });
         }
+    }
 }
