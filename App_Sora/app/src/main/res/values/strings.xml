@@ -25,8 +25,8 @@
     <string name="repetirContrasena">Repite la contraseña</string>
     <string name="btnRegistrarse">Registrarse</string>
 
-    <string name="agregarAmigo">Añadir contacto</string>
-    <string name="agregarGrupo">Añadir grupo</string>
+    <string name="añadirAmigo">Añadir contacto</string>
+    <string name="añadirGrupo">Añadir grupo</string>
     <string name="buscar">Buscar</string>
     <string name="modificarPerfil">Ajustes</string>
     <string name="guardar">Guardar</string>
@@ -43,4 +43,9 @@
     <string name="cambiarIcono">Cambiar icono</string>
     <string name="modificarNombrePerfil">Cambiar nombre</string>
     <string name="modificarDescripcionPerfil">Modificar la descripción</string>
+
+    <string name="agregarContacto">Agregar contacto</string>
+    <string name="agregarGrupo">Agregar grupo</string>
+    <string name="comoAgregarContacto">Envia una petición de solicitud de amistad a cualquier usuario solo introduciendo su nombre de cuenta</string>
+    <string name="comoAgregarGrupo">Envia una petición de solicitud a cualquier grupo solo introduciendo su nombre</string>
 </resources>

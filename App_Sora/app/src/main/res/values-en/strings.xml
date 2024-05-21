@@ -21,7 +21,6 @@
     <string name="introduceContrasena">Password cannot be empty</string>
     <string name="repetirContrasena">Repeat password</string>
     <string name="btnRegistrarse">Sign in</string>
-    <string name="agregarAmigo">" Add contact"</string>
     <string name="agregarGrupo">Add group</string>
     <string name="buscar">Search</string>
     <string name="modificarPerfil">Profile settings</string>
@@ -37,4 +36,9 @@
     <string name="cambiarIcono">Change icon</string>
     <string name="modificarNombrePerfil">Change name</string>
     <string name="modificarDescripcionPerfil">Modify the description</string>
+    <string name="agregarContacto">" Add contact"</string>
+    <string name="comoAgregarContacto">Send a friend request request to any user just by entering their account name</string>
+    <string name="comoAgregarGrupo">Send a request request to any group just by entering their name</string>
+    <string name="añadirAmigo">Add contact</string>
+    <string name="añadirGrupo">Add group</string>
 </resources>

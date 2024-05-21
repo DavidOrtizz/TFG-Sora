@@ -106,7 +106,7 @@
         android:id="@+id/buttonRegistrarse"
         android:layout_width="179dp"
         android:layout_height="41dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/colorIcono_celeste"
         android:text="@string/btnRegistrarse"
         android:textColor="@color/white"
