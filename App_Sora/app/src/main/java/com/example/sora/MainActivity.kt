@@ -48,6 +48,10 @@ class MainActivity : AppCompatActivity() {
             navigation.selectedItemId = R.id.contactosFragment
         } else if (cargarMenu == "Perfil"){
             navigation.selectedItemId = R.id.perfilFragment
+        } else if (cargarMenu == "Contactos"){
+            navigation.selectedItemId = R.id.contactosFragment
+        } else if (cargarMenu == "Grupos"){
+            navigation.selectedItemId = R.id.gruposFragment
         }
     }
 

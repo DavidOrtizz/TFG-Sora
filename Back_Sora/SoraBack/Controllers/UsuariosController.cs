@@ -127,9 +127,11 @@ namespace SoraBack.Controllers
             // Devuelve la lista de usuarios encontrados
             if (usuariosEncontrados.Any())
             {
-                return Ok(usuariosEncontrados);
+                Console.WriteLine($"Usuarios encontrados: {usuariosEncontrados.Count}");
+                return Ok(new {usuarios = usuariosEncontrados});
             }
 
+            Console.WriteLine("No se encontraron usuarios");
             return BadRequest(new { mensaje = "No se encontraron usuarios" });
         }
 

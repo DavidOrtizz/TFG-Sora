@@ -1,10 +1,12 @@
 package com.example.sora
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,6 +39,13 @@ class ContactosFragment : Fragment() {
         val vista = inflater.inflate(R.layout.fragment_contactos, container, false)
 
         val context = requireContext()
+
+        val btnAgregarContacto = vista.findViewById<Button>(R.id.buttonContactos)
+        val intentAgregarContacto = Intent(requireContext(), MenuAgregarContacto::class.java)
+
+        btnAgregarContacto.setOnClickListener {
+            activity?.startActivity(intentAgregarContacto)
+        }
 
         val contactRv : RecyclerView = vista.findViewById(R.id.contactRv)
 

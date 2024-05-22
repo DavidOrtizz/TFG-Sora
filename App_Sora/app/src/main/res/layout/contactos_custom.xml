@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardUseCompatPadding="true"
-    android:backgroundTint="@color/fondo_menu_oscuro"
+    android:backgroundTint="@color/fondo_oscuro"
     app:cardCornerRadius="10dp">
 
     <RelativeLayout
@@ -23,7 +23,16 @@
             android:text="@string/nombreUsuario"
             android:textColor="@color/white"
             android:layout_toEndOf="@id/IconoPerfil"
-            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
             android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/textNombreCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nombreCuenta"
+            android:layout_toEndOf="@id/IconoPerfil"
+            android:textSize="15sp"
+            android:layout_marginTop="45dp"/>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
