@@ -33,8 +33,12 @@ class NotificacionesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val vista = inflater.inflate(R.layout.fragment_notificaciones, container, false)
+
+        val context = requireContext()
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notificaciones, container, false)
+        return vista
     }
 
     companion object {

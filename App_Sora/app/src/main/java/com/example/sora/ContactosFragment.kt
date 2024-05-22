@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,11 +34,17 @@ class ContactosFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Ocultar la ActionBar
-        activity?.actionBar?.hide()
+        val vista = inflater.inflate(R.layout.fragment_contactos, container, false)
+
+        val context = requireContext()
+
+        val contactRv : RecyclerView = vista.findViewById(R.id.contactRv)
+
+        contactRv.setHasFixedSize(true)
+        contactRv
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contactos, container, false)
+        return vista
     }
 
     companion object {

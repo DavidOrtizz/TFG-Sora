@@ -52,4 +52,7 @@
     <string name="confirmarCerrarSesion">¿Estás seguro de que quieres cerrar la sesión?</string>
     <string name="si">Si</string>
     <string name="no">No</string>
+    <string name="SolicitudDeAmistad">Te han enviado una solicitud de amistad</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="rechazar">Rechazar</string>
 </resources>
