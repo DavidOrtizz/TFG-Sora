@@ -48,4 +48,8 @@
     <string name="agregarGrupo">Agregar grupo</string>
     <string name="comoAgregarContacto">Envia una petición de solicitud de amistad a cualquier usuario solo introduciendo su nombre de cuenta</string>
     <string name="comoAgregarGrupo">Envia una petición de solicitud a cualquier grupo solo introduciendo su nombre</string>
+
+    <string name="confirmarCerrarSesion">¿Estás seguro de que quieres cerrar la sesión?</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
 </resources>

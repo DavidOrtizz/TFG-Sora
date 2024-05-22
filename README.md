@@ -53,6 +53,9 @@ Enlace para poder ver el video explicatorio: https://youtu.be/Dl5yziEjEYs
 [Documentación Firebase](https://firebase.google.com/docs?hl=es) <br>
 [Documentacion JWT](https://drive.google.com/file/d/1WxxYBQWPNJbd1GKXZpeGyRI8EdqhTKY9/view?usp=sharing) <br>
 [SharedPreference](https://youtu.be/-ifRCo1MQ3g?si=oz6Ah3378Y61Ynub) <br>
+[FloatingActionButton](https://youtu.be/q5b1CVtW8Xg?si=FvkeN0LCVKYlyKTP) <br>
+[Cómo AÑADIR ANIMACIONES en Android Studio | Lottie Tutorial](https://youtu.be/h3ppaE8fBsQ?si=Diy-6Miozu7jyKeB) <br>
+[Android custom alert dialog](https://youtu.be/CAmUcMq-tsM?si=rrPmz5BwRpejP9ZW)
 
 # Histórico
 https://iridescent-mouth-151.notion.site/Diario-bf14cc3d327c4c48b455575e9ace07bc?pvs=4

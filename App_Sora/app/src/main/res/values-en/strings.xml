@@ -41,4 +41,7 @@
     <string name="comoAgregarGrupo">Send a request request to any group just by entering their name</string>
     <string name="añadirAmigo">Add contact</string>
     <string name="añadirGrupo">Add group</string>
+    <string name="confirmarCerrarSesion">Are you sure you want to log out?</string>
+    <string name="si">Yes</string>
+    <string name="no">No</string>
 </resources>

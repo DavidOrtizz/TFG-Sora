@@ -12,16 +12,13 @@
         android:id="@+id/textViewModificarPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="18dp"
-        android:layout_marginRight="10dp"
         android:text="@string/modificarPerfil"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/buttonGuardar"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toEndOf="@+id/buttonVolver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -35,43 +32,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonGuardar"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:backgroundTint="@color/verde"
-        android:text="@string/guardar"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Cambiar icono de perfil"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewModificarPerfil" />
 
     <ImageView
         android:id="@+id/imageViewPerfil"
         android:layout_width="125dp"
         android:layout_height="125dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icono_defecfo0"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="30dp"/>
-
-    <Button
-        android:id="@+id/buttonCambiarIcono"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="85dp"
-        android:backgroundTint="@color/colorIcono_celeste"
-        android:text="@string/cambiarIcono"
-        android:textColor="@color/white"
-        android:textStyle="bold"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewPerfil"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGuardar" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/icono_defecfo0" />
 
     <TextView
         android:id="@+id/textView3"
@@ -90,8 +71,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
         android:layout_marginTop="25dp"
+        android:layout_marginRight="35dp"
         android:textColorHint="@color/white"
         app:hintTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,8 +102,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
         android:layout_marginTop="25dp"
+        android:layout_marginRight="35dp"
         android:textColorHint="@color/white"
         app:hintTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,12 +121,24 @@
         android:id="@+id/buttonCerrarSesion"
         android:layout_width="150dp"
         android:layout_height="45dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/fondo_menu_oscuro"
         android:text="@string/cerrarSesion"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+        app:layout_constraintVertical_bias="0.155" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/colorIcono_celeste"
+        android:src="@drawable/icono_save"
+        android:layout_margin="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
