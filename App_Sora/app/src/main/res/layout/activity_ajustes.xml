@@ -121,24 +121,21 @@
         android:id="@+id/buttonCerrarSesion"
         android:layout_width="150dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/fondo_menu_oscuro"
         android:text="@string/cerrarSesion"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-        app:layout_constraintVertical_bias="0.155" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/buttonGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
         android:backgroundTint="@color/colorIcono_celeste"
         android:src="@drawable/icono_save"
-        android:layout_margin="16dp"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,36 +35,15 @@
         app:layout_constraintStart_toEndOf="@+id/textViewTitulo"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutBuscador"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="650dp"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/EditBuscador"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/buscar" />
-    </com.google.android.material.textfield.TextInputLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contactRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="90dp"
-        tools:listitem="@layout/contactos_custom"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@+id/layoutBuscador">
-
+        tools:layout_editor_absoluteY="120dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="60dp"
+        tools:listitem="@layout/contactos_custom">
     </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

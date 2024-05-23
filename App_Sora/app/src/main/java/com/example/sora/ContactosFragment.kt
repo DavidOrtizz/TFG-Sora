@@ -50,7 +50,6 @@ class ContactosFragment : Fragment() {
         val contactRv : RecyclerView = vista.findViewById(R.id.contactRv)
 
         contactRv.setHasFixedSize(true)
-        contactRv
 
         // Inflate the layout for this fragment
         return vista

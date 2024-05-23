@@ -55,4 +55,8 @@
     <string name="SolicitudDeAmistad">Te han enviado una solicitud de amistad</string>
     <string name="aceptar">Aceptar</string>
     <string name="rechazar">Rechazar</string>
+    <string name="errorNombreUsuario">El nombre de usuario no puede estar vacio</string>
+    <string name="exitoModificacion">Los datos han sido modificados correctamente</string>
+    <string name="fallorModificacion">Los datos no han sido modificados</string>
+    <string name="errorModificarDaros">Ha ocurrido un error al modificar los datos por parte del servidor</string>
 </resources>

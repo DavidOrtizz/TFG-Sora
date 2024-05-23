@@ -35,7 +35,7 @@ class MenuAgregarContacto : AppCompatActivity() {
         }
 
         val btnVolver = findViewById<ImageButton>(R.id.buttonVolver)
-        val intentVolver = Intent(this, ContactosFragment::class.java)
+        val intentVolver = Intent(this, MainActivity::class.java)
             .putExtra("cargarMenu","Contactos")
 
         btnVolver.setOnClickListener {

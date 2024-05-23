@@ -153,5 +153,25 @@ namespace SoraBack.Controllers
 
             return BadRequest(new { mensaje = "No se ha encontrado el usuario" });
         }
+
+        [AllowAnonymous]
+        [HttpPut("modificarDatos")]
+        public IActionResult ModificarDatos([FromBody] Usuario usuario)
+        {
+            var usuarioEncontrado = _dbContext.Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == usuario.NombreCuenta.ToLower());
+
+            if (usuarioEncontrado == null)
+            {
+                return NotFound(new { mensaje = "Usuario no encontrado" });
+            }
+
+            usuarioEncontrado.NombreUsuario = usuario.NombreUsuario;
+            usuarioEncontrado.Descripcion = usuario.Descripcion;
+
+            _dbContext.Usuarios.Update(usuarioEncontrado);
+            _dbContext.SaveChanges();
+
+            return Ok(new { mensaje = "Datos del usuario actualizados" });
+        }
     }
 }
