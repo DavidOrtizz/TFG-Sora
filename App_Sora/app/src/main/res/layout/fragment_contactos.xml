@@ -15,35 +15,31 @@
         android:gravity="center_horizontal"
         android:text="@string/BottonContactos"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/buttonContactos"
-        android:layout_width="187dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="25dp"
-        android:backgroundTint="@color/fondo_menu_oscuro"
-        android:text="@string/añadirAmigo"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toEndOf="@+id/textViewTitulo"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorIcono_celeste"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="95dp"
+        android:src="@drawable/agregarcontacto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contactRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:layout_editor_absoluteY="120dp"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="60dp"
-        tools:listitem="@layout/contactos_custom">
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:layout_editor_absoluteY="120dp"
+        tools:listitem="@layout/contactos_custom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

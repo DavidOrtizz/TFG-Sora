@@ -59,4 +59,9 @@
     <string name="exitoModificacion">Los datos han sido modificados correctamente</string>
     <string name="fallorModificacion">Los datos no han sido modificados</string>
     <string name="errorModificarDaros">Ha ocurrido un error al modificar los datos por parte del servidor</string>
+    <string name="seleccionaIcono">Selecciona el icono que mas te guste</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="enviarSolicitudAmistad">Enviar solicitud de amistad</string>
+    <string name="verPerfil">Ver perfil</string>
 </resources>

@@ -12,6 +12,7 @@ import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -44,6 +45,7 @@ class AjustesActivity : AppCompatActivity() {
         val btnCerrarSesion = findViewById<Button>(R.id.buttonCerrarSesion)
         val txtCambiarNombre = findViewById<EditText>(R.id.textCambiarNombreUsuario)
         val txtCambiarDescripcion = findViewById<EditText>(R.id.textCambiarDescripcion)
+        val iconoPerfil = findViewById<ImageView>(R.id.imageViewPerfil)
 
         val sharedPreferences = getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
 
@@ -126,6 +128,10 @@ class AjustesActivity : AppCompatActivity() {
         btnCerrarSesion.setOnClickListener {
             showCustomDialogBox()
         }
+
+        iconoPerfil.setOnClickListener {
+            cambiarIconoPerfil()
+        }
     }
 
     private fun showCustomDialogBox(){
@@ -155,5 +161,86 @@ class AjustesActivity : AppCompatActivity() {
         }
 
         dialog.show()
+    }
+
+    private fun cambiarIconoPerfil(){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.cambiar_perfil)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val iconoCalcifer : ImageView = dialog.findViewById(R.id.iconoCalcifer)
+        val iconoGato : ImageView = dialog.findViewById(R.id.iconoGato)
+        val iconoDesdentao : ImageView = dialog.findViewById(R.id.iconoDesdentao)
+        val btnCancelar : Button = dialog.findViewById(R.id.buttonCancelar)
+        val sharedPreferences = getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
+
+        iconoCalcifer.setOnClickListener {
+            actualizarIconoPerfil("icono_calcifer1.png")
+        }
+
+        iconoGato.setOnClickListener {
+            actualizarIconoPerfil("icono_gato3.png")
+        }
+
+        iconoDesdentao.setOnClickListener {
+            actualizarIconoPerfil("icono_desdentao2.png")
+        }
+
+        btnCancelar.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun actualizarIconoPerfil(icono: String) {
+        val sharedPreferences = getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
+        val nombreCuenta = sharedPreferences.getString("nombreCuenta", null)
+
+        if (nombreCuenta != null) {
+            val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
+            val queue = Volley.newRequestQueue(this, sslSocketFactory)
+
+            val jsonObject = JSONObject()
+            jsonObject.put("NombreCuenta", nombreCuenta)
+            jsonObject.put("IconoPerfil", icono)
+
+            val iconRequest = object : StringRequest(Request.Method.PUT, Constants.URL_ModificarIconoPerfil, Response.Listener {
+                response ->
+                    try {
+                        val jsonResponse = JSONObject(response)
+                        val mensaje = jsonResponse.getString("mensaje")
+
+                        if (mensaje == "Icono actualizado") {
+                            Toast.makeText(this, R.string.exitoModificacion, Toast.LENGTH_SHORT)
+                                .show()
+                            sharedPreferences.edit().putString("iconoPerfil", icono).apply()
+                        } else {
+                            Toast.makeText(this, R.string.fallorModificacion, Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                },
+                Response.ErrorListener { error ->
+                    error.printStackTrace()
+                    Toast.makeText(this, R.string.errorModificarDaros, Toast.LENGTH_SHORT).show()
+                }) {
+                override fun getBody(): ByteArray {
+                    return jsonObject.toString().toByteArray()
+                }
+
+                override fun getBodyContentType(): String {
+                    return "application/json; charset=utf-8"
+                }
+            }
+
+            queue.add(iconRequest)
+        } else {
+            Toast.makeText(this, R.string.errorNombreUsuario, Toast.LENGTH_SHORT).show()
+        }
     }
 }

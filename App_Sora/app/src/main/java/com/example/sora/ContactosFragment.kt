@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,7 +41,7 @@ class ContactosFragment : Fragment() {
 
         val context = requireContext()
 
-        val btnAgregarContacto = vista.findViewById<Button>(R.id.buttonContactos)
+        val btnAgregarContacto = vista.findViewById<FloatingActionButton>(R.id.buttonContactos)
         val intentAgregarContacto = Intent(requireContext(), MenuAgregarContacto::class.java)
 
         btnAgregarContacto.setOnClickListener {

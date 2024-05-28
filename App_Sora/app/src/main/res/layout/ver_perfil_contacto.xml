@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/fondo_menu"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="15dp">
+
+    <ImageView
+        android:id="@+id/imageView_Icono"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/icono_defecfo0" />
+
+    <TextView
+        android:id="@+id/textView_NombreUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="75dp"
+        android:text="@string/nombreUsuario"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView_NombreCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="171dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/nombreCuenta"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textViewSobreMi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="170dp"
+        android:text="@string/sobreMi"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewContenidoSobreMi"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/textViewSobreMi"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="200dp"
+        android:text=""
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/buttonCerrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cerrar"
+        android:textColor="@color/colorIcono_celeste"
+        android:backgroundTint="@color/fondo_menu"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="405dp"/>
+
+    <Button
+        android:id="@+id/buttonSolicitudAmistad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enviarSolicitudAmistad"
+        android:backgroundTint="@color/colorIcono_celeste"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="350dp"/>
+</androidx.cardview.widget.CardView>

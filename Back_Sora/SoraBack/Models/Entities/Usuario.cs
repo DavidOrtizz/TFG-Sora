@@ -11,6 +11,7 @@ namespace SoraBack.Models.Entities
         public string Correo { get; set; }
         public string Contrasena { get; set; }
         public string Descripcion { get; set; }
+        public string IconoPerfil { get; set; }
         public string Rol {  get; set; }
 
     }

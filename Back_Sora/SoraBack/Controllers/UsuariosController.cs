@@ -120,7 +120,8 @@ namespace SoraBack.Controllers
                 .Select(u => new
                 {
                     NombreUsuario = u.NombreUsuario,
-                    NombreCuenta = u.NombreCuenta
+                    NombreCuenta = u.NombreCuenta,
+                    Descripcion = u.Descripcion
                 })
                 .ToList();
 
@@ -172,6 +173,55 @@ namespace SoraBack.Controllers
             _dbContext.SaveChanges();
 
             return Ok(new { mensaje = "Datos del usuario actualizados" });
+        }
+
+        // Aun no funciona :(
+        [Authorize]
+        [HttpPut("modificarIcono")]
+        public IActionResult ModificarIcono([FromBody] Usuario usuario)
+        {
+            var usuarioEncontrado = _dbContext.Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == usuario.NombreCuenta.ToLower());
+
+            if (usuarioEncontrado != null)
+            {
+                usuarioEncontrado.IconoPerfil = usuario.IconoPerfil;
+
+                _dbContext.Usuarios.Update(usuarioEncontrado);
+                _dbContext.SaveChangesAsync();
+
+                return Ok(new { mensaje = "Icono actualizado" });
+            }
+
+            return BadRequest(new { mensaje = "No se ha encontrado el usuario" });
+        }
+
+        [Authorize]
+        [HttpPut("enviarSolicitudAmistad")]
+        public IActionResult enviarSolicitudAmistad([FromBody] Usuario usuario, Usuario usuarioEncontrado)
+        {
+            // Busca el usuario que envía la solicitud
+            var usuarioBusca = _dbContext.Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == solicitudAmistad.UsuarioEnvia.ToLower());
+            // Busca el usuario que recibe la solicitud
+            var usuarioRecibe = _dbContext.Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == solicitudAmistad.UsuarioRecibe.ToLower());
+
+
+            if (usuarioBusca == null || usuarioRecibe == null)
+            {
+                return BadRequest(new { mensaje = "Usuario no encontrado" });
+            }
+            // Crear una nueva solicitud de amistad
+            var nuevaSolicitud = new SolicitudAmistad
+            {
+                UsuarioEnvia = usuarioBusca.NombreCuenta,
+                UsuarioRecibe = usuarioRecibe.NombreCuenta,
+                Estado = "Pendiente"
+            };
+
+            _dbContext.Amistades.Add(nuevaSolicitud);
+            _dbContext.SaveChanges();
+
+            return Ok(new { mensaje = "Solicitud de amistad enviada" });
+        
         }
     }
 }

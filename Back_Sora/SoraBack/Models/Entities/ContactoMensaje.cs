@@ -7,6 +7,6 @@
         public int ReceptorId { get; set; }
         public string ContenidoMensaje { get; set; }
 
-        public Contactos Contactos { get; set; }
+        public SolicitudAmistad Contactos { get; set; }
     }
 }

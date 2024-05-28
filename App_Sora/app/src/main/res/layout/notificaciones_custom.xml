@@ -66,11 +66,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/rechazar"
-                android:textColor="@color/white"
+                android:textColor="@color/colorIcono_celeste"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/fondo_menu_oscuro"/>
+                android:backgroundTint="@color/fondo_menu"/>
         </LinearLayout>
 
     </RelativeLayout>

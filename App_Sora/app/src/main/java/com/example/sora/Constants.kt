@@ -7,8 +7,10 @@ class Constants {
 
         const val URL_REGISTER = "https://" + IP_SERVER + "/api/Usuarios/signup"
         const val URL_LOGIN = "https://" + IP_SERVER + "/api/Usuarios/login"
-        const val URL_BuscarContacto = "https://" + IP_SERVER + "/api/Usuarios/buscarUsuario"
+        const val URL_BuscarUsuario = "https://" + IP_SERVER + "/api/Usuarios/buscarUsuario"
         const val URL_ModificarDatosUsuario = "https://" + IP_SERVER + "/api/Usuarios/modificarDatos"
+        const val URL_ModificarIconoPerfil = "https://" + IP_SERVER + "/api/Usuarios/modificarIcono"
+        const val URL_EnviarSolicitudAmistad = "https://" + IP_SERVER + "/api/Usuarios/modificarIcono"
         const val URL_obtenerDatosUsuario = "https://" + IP_SERVER + "/api/Usuarios/obtenerDatosUsuario"
         const val URL_BuscarGrupo = "https://" + IP_SERVER + "/api/Usuarios/buscarGrupo"
     }

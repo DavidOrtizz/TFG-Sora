@@ -1,12 +1,18 @@
 package com.example.sora
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.Window
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -73,7 +79,7 @@ class MenuAgregarContacto : AppCompatActivity() {
                 e.printStackTrace()
             }
 
-        val request = object : JsonObjectRequest(Method.POST, Constants.URL_BuscarContacto, jsonObject, Response.Listener {
+        val request = object : JsonObjectRequest(Method.POST, Constants.URL_BuscarUsuario, jsonObject, Response.Listener {
             response ->
             Log.d("MenuAgregarContacto", "Respuesta del servidor: $response")
                 val contactos = mutableListOf<UsuarioResponse>()
@@ -84,7 +90,8 @@ class MenuAgregarContacto : AppCompatActivity() {
                         contactos.add(
                             UsuarioResponse(
                                 usuario.getString("nombreUsuario"),
-                                usuario.getString("nombreCuenta")
+                                usuario.getString("nombreCuenta"),
+                                usuario.getString("descripcion")
                             )
                         )
                     }
