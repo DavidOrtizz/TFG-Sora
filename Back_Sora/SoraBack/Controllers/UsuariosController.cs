@@ -176,7 +176,7 @@ namespace SoraBack.Controllers
         }
 
         // Aun no funciona :(
-        [Authorize]
+        [AllowAnonymous]
         [HttpPut("modificarIcono")]
         public IActionResult ModificarIcono([FromBody] Usuario usuario)
         {
@@ -195,9 +195,9 @@ namespace SoraBack.Controllers
             return BadRequest(new { mensaje = "No se ha encontrado el usuario" });
         }
 
-        [Authorize]
-        [HttpPut("enviarSolicitudAmistad")]
-        public IActionResult enviarSolicitudAmistad([FromBody] Usuario usuario, Usuario usuarioEncontrado)
+        [AllowAnonymous]
+        [HttpPost("enviarSolicitudAmistad")]
+        public IActionResult EnviarSolicitudAmistad([FromBody] SolicitudAmistad solicitudAmistad)
         {
             // Busca el usuario que envía la solicitud
             var usuarioBusca = _dbContext.Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == solicitudAmistad.UsuarioEnvia.ToLower());
@@ -209,6 +209,7 @@ namespace SoraBack.Controllers
             {
                 return BadRequest(new { mensaje = "Usuario no encontrado" });
             }
+
             // Crear una nueva solicitud de amistad
             var nuevaSolicitud = new SolicitudAmistad
             {

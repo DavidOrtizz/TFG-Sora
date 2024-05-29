@@ -10,7 +10,7 @@ class Constants {
         const val URL_BuscarUsuario = "https://" + IP_SERVER + "/api/Usuarios/buscarUsuario"
         const val URL_ModificarDatosUsuario = "https://" + IP_SERVER + "/api/Usuarios/modificarDatos"
         const val URL_ModificarIconoPerfil = "https://" + IP_SERVER + "/api/Usuarios/modificarIcono"
-        const val URL_EnviarSolicitudAmistad = "https://" + IP_SERVER + "/api/Usuarios/modificarIcono"
+        const val URL_EnviarSolicitudAmistad = "https://" + IP_SERVER + "/api/Usuarios/enviarSolicitudAmistad"
         const val URL_obtenerDatosUsuario = "https://" + IP_SERVER + "/api/Usuarios/obtenerDatosUsuario"
         const val URL_BuscarGrupo = "https://" + IP_SERVER + "/api/Usuarios/buscarGrupo"
     }

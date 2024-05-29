@@ -4,13 +4,20 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 
 class ContactAdapter (private val contactos: List<UsuarioResponse>) : RecyclerView.Adapter<ContactAdapter.MostrarContacto>() {
 
@@ -55,7 +62,7 @@ class ContactAdapter (private val contactos: List<UsuarioResponse>) : RecyclerVi
         descripcion.text = contacto.Descripcion
 
         btnAgregarContacto.setOnClickListener {
-
+            enviarSolicitudAmistad(context, contacto)
         }
 
         btnCerrar.setOnClickListener {
@@ -63,5 +70,37 @@ class ContactAdapter (private val contactos: List<UsuarioResponse>) : RecyclerVi
         }
 
         dialog.show()
+    }
+
+    private fun enviarSolicitudAmistad(context: Context, contacto: UsuarioResponse) {
+
+        val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
+        val queue = Volley.newRequestQueue(context, sslSocketFactory)
+
+        val sharedPreferences = context.getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
+        val nombreCuentaEnvia = sharedPreferences.getString("nombreCuenta", null)
+
+        Log.d("enviarSolicitudAmistad", "Nombre cuenta envia $nombreCuentaEnvia , y usuarioRecibe: ${contacto.NombreCuenta}")
+        val jsonObject = JSONObject().apply {
+            put("UsuarioEnvia", nombreCuentaEnvia)
+            put("UsuarioRecibe", contacto.NombreCuenta)
+        }
+
+        val request = object : JsonObjectRequest(Method.POST, Constants.URL_EnviarSolicitudAmistad, jsonObject, Response.Listener {
+            response ->
+            Toast.makeText(context, R.string.avisoEnviarSolicitudAmistad, Toast.LENGTH_SHORT).show()
+            Log.d("ContactAdapter", "Exito al enviar: $response")
+        },
+            { error ->
+                Toast.makeText(context, R.string.avisoErrorSolicitudAmistad, Toast.LENGTH_SHORT).show()
+                Log.e("ContactAdapter", "Error: ${error.message}")
+            }
+        ) {
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+        }
+
+        queue.add(request)
     }
 }

@@ -64,4 +64,6 @@
     <string name="cerrar">Cerrar</string>
     <string name="enviarSolicitudAmistad">Enviar solicitud de amistad</string>
     <string name="verPerfil">Ver perfil</string>
+    <string name="avisoEnviarSolicitudAmistad">La solicitud de amistad a sido enviada</string>
+    <string name="avisoErrorSolicitudAmistad">Error al enviar solicitud de amistad</string>
 </resources>

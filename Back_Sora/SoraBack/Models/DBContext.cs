@@ -13,6 +13,7 @@ namespace SoraBack.Models
         public DbSet<GrupoMensajes> GrupoMensajes { get; set; }
         public DbSet<Grupo> Grupos {  get; set; } 
         public DbSet<ContactoMensaje> ContactoMensajes { get; set; }
+        public DbSet<SolicitudAmistad> Amistades { get; set; }
 
         // Configuración EF para crear un archivo de base de datos
         protected override void OnConfiguring(DbContextOptionsBuilder options)
