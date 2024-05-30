@@ -1,4 +1,4 @@
-package com.example.sora
+package com.example.sora.Adapter
 
 import android.app.Dialog
 import android.content.Context
@@ -13,10 +13,13 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.sora.Controllers.Constants
+import com.example.sora.R
+import com.example.sora.Controllers.SSLSocketFactoryUtil
+import com.example.sora.Datos.UsuarioResponse
 import org.json.JSONObject
 
 class ContactAdapter (private val contactos: List<UsuarioResponse>) : RecyclerView.Adapter<ContactAdapter.MostrarContacto>() {
@@ -86,7 +89,8 @@ class ContactAdapter (private val contactos: List<UsuarioResponse>) : RecyclerVi
             put("UsuarioRecibe", contacto.NombreCuenta)
         }
 
-        val request = object : JsonObjectRequest(Method.POST, Constants.URL_EnviarSolicitudAmistad, jsonObject, Response.Listener {
+        val request = object : JsonObjectRequest(Method.POST,
+            Constants.URL_EnviarSolicitudAmistad, jsonObject, Response.Listener {
             response ->
             Toast.makeText(context, R.string.avisoEnviarSolicitudAmistad, Toast.LENGTH_SHORT).show()
             Log.d("ContactAdapter", "Exito al enviar: $response")

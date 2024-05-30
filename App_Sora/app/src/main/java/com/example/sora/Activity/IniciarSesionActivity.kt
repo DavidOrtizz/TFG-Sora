@@ -1,8 +1,7 @@
-package com.example.sora
+package com.example.sora.Activity
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -16,9 +15,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.JsonRequest
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.sora.Controllers.Constants
+import com.example.sora.R
+import com.example.sora.Controllers.SSLSocketFactoryUtil
 import org.json.JSONObject
 
 class IniciarSesionActivity : AppCompatActivity() {
@@ -60,7 +60,8 @@ class IniciarSesionActivity : AppCompatActivity() {
             jsonBody.put("Correo", correo)
             jsonBody.put("Contrasena", contrasena)
 
-            val loginRequest = object : JsonObjectRequest(Request.Method.POST, Constants.URL_LOGIN, jsonBody, Response.Listener {
+            val loginRequest = object : JsonObjectRequest(Request.Method.POST,
+                Constants.URL_LOGIN, jsonBody, Response.Listener {
                 response ->
                     val token = response.getString("token")
                     val nombreUsuario = response.getString("nombreUsuario")

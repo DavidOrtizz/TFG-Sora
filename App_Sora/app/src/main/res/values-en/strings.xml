@@ -44,4 +44,18 @@
     <string name="confirmarCerrarSesion">Are you sure you want to log out?</string>
     <string name="si">Yes</string>
     <string name="no">No</string>
+    <string name="SolicitudDeAmistad">He has sent you a friend request</string>
+    <string name="aceptar">" Accept"</string>
+    <string name="rechazar">Decline</string>
+    <string name="errorNombreUsuario">" Username cannot be empty"</string>
+    <string name="exitoModificacion">The data has been modified correctly</string>
+    <string name="fallorModificacion">Los datos no han sido modificados</string>
+    <string name="errorModificarDaros">An error occurred while modifying the data by the server</string>
+    <string name="seleccionaIcono">Select the icon you like the most</string>
+    <string name="cancelar">Cancel</string>
+    <string name="cerrar">Close</string>
+    <string name="enviarSolicitudAmistad">Send friend request</string>
+    <string name="verPerfil">View profile</string>
+    <string name="avisoEnviarSolicitudAmistad">Friend request has been sent</string>
+    <string name="avisoErrorSolicitudAmistad">Error sending friend request</string>
 </resources>

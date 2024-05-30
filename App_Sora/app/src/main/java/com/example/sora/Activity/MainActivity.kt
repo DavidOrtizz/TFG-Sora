@@ -1,9 +1,13 @@
-package com.example.sora
+package com.example.sora.Activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
+import com.example.sora.ContactosFragment
+import com.example.sora.GruposFragment
+import com.example.sora.NotificacionesFragment
+import com.example.sora.PerfilFragment
+import com.example.sora.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

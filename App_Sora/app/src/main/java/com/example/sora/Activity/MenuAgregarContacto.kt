@@ -1,18 +1,12 @@
-package com.example.sora
+package com.example.sora.Activity
 
-import android.app.Dialog
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.Window
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -20,9 +14,13 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Response
-import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.sora.Adapter.ContactAdapter
+import com.example.sora.Controllers.Constants
+import com.example.sora.Controllers.SSLSocketFactoryUtil
+import com.example.sora.R
+import com.example.sora.Datos.UsuarioResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -64,7 +62,6 @@ class MenuAgregarContacto : AppCompatActivity() {
                 }
             })
         }
-
     }
 
     private fun buscarContacto(nombreCuenta: String) {
@@ -72,12 +69,9 @@ class MenuAgregarContacto : AppCompatActivity() {
         val queue = Volley.newRequestQueue(this, sslSocketFactory)
         val recyclerView : RecyclerView = findViewById(R.id.contactosEncontrados)
 
-        val jsonObject = JSONObject()
-            try {
-                jsonObject.put("NombreCuenta", nombreCuenta)
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
+        val jsonObject = JSONObject().apply {
+            put("NombreCuenta", nombreCuenta)
+        }
 
         val request = object : JsonObjectRequest(Method.POST, Constants.URL_BuscarUsuario, jsonObject, Response.Listener {
             response ->

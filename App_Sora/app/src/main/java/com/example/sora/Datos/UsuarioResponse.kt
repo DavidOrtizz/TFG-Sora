@@ -1,4 +1,4 @@
-package com.example.sora
+package com.example.sora.Datos
 
 data class UsuarioResponse(
     val NombreUsuario: String,

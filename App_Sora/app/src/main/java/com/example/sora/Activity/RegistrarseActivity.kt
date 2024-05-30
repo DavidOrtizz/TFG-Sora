@@ -1,4 +1,4 @@
-package com.example.sora
+package com.example.sora.Activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,20 +13,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.HurlStack
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.sora.Controllers.Constants
+import com.example.sora.R
+import com.example.sora.Controllers.SSLSocketFactoryUtil
 import org.json.JSONException
 import org.json.JSONObject
-import java.net.HttpURLConnection
-import java.net.URL
-import java.security.SecureRandom
-import java.security.cert.X509Certificate
-import javax.net.ssl.HostnameVerifier
-import javax.net.ssl.HttpsURLConnection
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManager
-import javax.net.ssl.X509TrustManager
 
 class RegistrarseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +74,8 @@ class RegistrarseActivity : AppCompatActivity() {
                             jsonObject.put("Rol", rol)
 
                             // Crear la solicitud de registro
-                            val registerRequest = object : StringRequest(Request.Method.POST, Constants.URL_REGISTER, Response.Listener {
+                            val registerRequest = object : StringRequest(Request.Method.POST,
+                                Constants.URL_REGISTER, Response.Listener {
                                 response ->
                                     try {
 //                                        Log.d("RegistrarseActivity", "Respuesta del servidor: $response")

@@ -32,7 +32,7 @@
             android:gravity="center"/>
 
         <TextView
-            android:id="@+id/textNombreUsuario"
+            android:id="@+id/textNotificationNombreContacto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -51,7 +51,7 @@
             android:gravity="center"
             android:layout_marginTop="65dp">
             <Button
-                android:id="@+id/btnSi"
+                android:id="@+id/btnNotificacionAceptar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/aceptar"
@@ -62,7 +62,7 @@
                 android:backgroundTint="@color/colorIcono_celeste"/>
 
             <Button
-                android:id="@+id/btnNo"
+                android:id="@+id/btnNotificacionRechazar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/rechazar"

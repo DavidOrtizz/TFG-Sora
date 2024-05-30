@@ -1,9 +1,8 @@
-package com.example.sora
+package com.example.sora.Activity
 
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -15,7 +14,6 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -23,6 +21,9 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.sora.Controllers.Constants
+import com.example.sora.R
+import com.example.sora.Controllers.SSLSocketFactoryUtil
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONException
 import org.json.JSONObject
@@ -207,7 +208,8 @@ class AjustesActivity : AppCompatActivity() {
             jsonObject.put("NombreCuenta", nombreCuenta)
             jsonObject.put("IconoPerfil", icono)
 
-            val iconRequest = object : StringRequest(Request.Method.PUT, Constants.URL_ModificarIconoPerfil, Response.Listener {
+            val iconRequest = object : StringRequest(Request.Method.PUT,
+                Constants.URL_ModificarIconoPerfil, Response.Listener {
                 response ->
                     try {
                         val jsonResponse = JSONObject(response)

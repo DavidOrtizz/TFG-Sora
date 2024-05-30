@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -8,7 +7,6 @@ using Recursos;
 using SoraBack.Models;
 using SoraBack.Models.Entities;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security;
 using System.Security.Claims;
 
 namespace SoraBack.Controllers
@@ -193,36 +191,6 @@ namespace SoraBack.Controllers
             }
 
             return BadRequest(new { mensaje = "No se ha encontrado el usuario" });
-        }
-
-        [AllowAnonymous]
-        [HttpPost("enviarSolicitudAmistad")]
-        public IActionResult EnviarSolicitudAmistad([FromBody] SolicitudAmistad solicitudAmistad)
-        {
-            // Busca el usuario que envía la solicitud
-            var usuarioBusca = _dbContext.Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == solicitudAmistad.UsuarioEnvia.ToLower());
-            // Busca el usuario que recibe la solicitud
-            var usuarioRecibe = _dbContext.Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == solicitudAmistad.UsuarioRecibe.ToLower());
-
-
-            if (usuarioBusca == null || usuarioRecibe == null)
-            {
-                return BadRequest(new { mensaje = "Usuario no encontrado" });
-            }
-
-            // Crear una nueva solicitud de amistad
-            var nuevaSolicitud = new SolicitudAmistad
-            {
-                UsuarioEnvia = usuarioBusca.NombreCuenta,
-                UsuarioRecibe = usuarioRecibe.NombreCuenta,
-                Estado = "Pendiente"
-            };
-
-            _dbContext.Amistades.Add(nuevaSolicitud);
-            _dbContext.SaveChanges();
-
-            return Ok(new { mensaje = "Solicitud de amistad enviada" });
-        
         }
     }
 }

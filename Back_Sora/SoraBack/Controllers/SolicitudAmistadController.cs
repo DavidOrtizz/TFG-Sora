@@ -1,0 +1,71 @@
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using SoraBack.Models;
+using SoraBack.Models.Entities;
+
+namespace SoraBack.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class SolicitudAmistadController : Controller
+    {
+        private readonly DBContext _dbContext;
+
+        // Obtenemos por inyección los parámetros preestablecios para crear los token
+        private readonly TokenValidationParameters _tokenParameters;
+
+        public SolicitudAmistadController(DBContext dbContext, IOptionsMonitor<JwtBearerOptions> jwtOptions)
+        {
+            _dbContext = dbContext;
+            _tokenParameters = jwtOptions.Get(JwtBearerDefaults.AuthenticationScheme).TokenValidationParameters;
+        }
+
+        [AllowAnonymous]
+        [HttpPost("enviarSolicitudAmistad")]
+        public IActionResult EnviarSolicitudAmistad([FromBody] SolicitudAmistad solicitudAmistad)
+        {
+            // Busca el usuario que envía la solicitud
+            var usuarioBusca = _dbContext.Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == solicitudAmistad.UsuarioEnvia.ToLower());
+            // Busca el usuario que recibe la solicitud
+            var usuarioRecibe = _dbContext.Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == solicitudAmistad.UsuarioRecibe.ToLower());
+
+            // Crear una nueva solicitud de amistad
+            var nuevaSolicitud = new SolicitudAmistad
+            {
+                UsuarioEnvia = usuarioBusca.NombreCuenta,
+                UsuarioRecibe = usuarioRecibe.NombreCuenta,
+                Estado = "Pendiente"
+            };
+
+            _dbContext.Amistades.Add(nuevaSolicitud);
+            _dbContext.SaveChanges();
+
+            return Ok(new { mensaje = "Solicitud de amistad enviada" });
+        }
+
+        [AllowAnonymous]
+        [HttpGet("recibirSolicitudAmistad")]
+        public IActionResult RecibirSolicitudAmistad()
+        {
+            // Obtenemos el nombre de cuenta del usuario que ha iniciado sesión
+            var nombreCuenta = User.Identity.Name;
+
+            // Busca las solicitudes de amistad pendientes
+            var solicitudes = _dbContext.Amistades
+                .Where(s => s.UsuarioRecibe.ToLower() == nombreCuenta.ToLower() && s.Estado == "Pendiente")
+                .Select(s => new
+                {
+                    s.Id,
+                    s.UsuarioEnvia,
+                    s.UsuarioRecibe,
+                    s.Estado
+                })
+                .ToList();
+
+            return Ok(solicitudes);
+        }
+    }
+}
