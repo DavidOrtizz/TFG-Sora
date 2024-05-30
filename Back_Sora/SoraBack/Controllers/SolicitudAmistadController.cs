@@ -48,14 +48,13 @@ namespace SoraBack.Controllers
 
         [AllowAnonymous]
         [HttpGet("recibirSolicitudAmistad")]
-        public IActionResult RecibirSolicitudAmistad()
+        public IActionResult RecibirSolicitudAmistad([FromQuery] string usuarioRecibe)
         {
-            // Obtenemos el nombre de cuenta del usuario que ha iniciado sesión
-            var nombreCuenta = User.Identity.Name;
+            // Se obtiene el nombre de cuenta del usuario que ha iniciado sesión
+            var nombreCuenta = usuarioRecibe.ToLower();
 
-            // Busca las solicitudes de amistad pendientes
             var solicitudes = _dbContext.Amistades
-                .Where(s => s.UsuarioRecibe.ToLower() == nombreCuenta.ToLower() && s.Estado == "Pendiente")
+                .Where(s => s.UsuarioRecibe.ToLower() == nombreCuenta && s.Estado == "Pendiente")
                 .Select(s => new
                 {
                     s.Id,

@@ -56,6 +56,10 @@ class MainActivity : AppCompatActivity() {
             navigation.selectedItemId = R.id.contactosFragment
         } else if (cargarMenu == "Grupos"){
             navigation.selectedItemId = R.id.gruposFragment
+        } else if (cargarMenu == "Notificaciones"){
+            navigation.selectedItemId = R.id.notificacionesFragment
+        } else {
+            navigation.selectedItemId = R.id.contactosFragment
         }
     }
 

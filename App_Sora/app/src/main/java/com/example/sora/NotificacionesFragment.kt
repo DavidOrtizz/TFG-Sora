@@ -1,23 +1,30 @@
 package com.example.sora
 
-import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
+import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.sora.Activity.MainActivity
 import com.example.sora.Adapter.NotificacionAdapter
 import com.example.sora.Controllers.Constants
 import com.example.sora.Controllers.SSLSocketFactoryUtil
 import com.example.sora.Datos.SolicitudAmistad
-import org.json.JSONArray
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.json.JSONException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,41 +61,68 @@ class NotificacionesFragment : Fragment() {
 
         val context = requireContext()
 
-        val reciclerView : RecyclerView = vista.findViewById(R.id.mostrarNotificacionesSolicitudAmistad)
-        reciclerView.layoutManager = LinearLayoutManager(context)
+        val intentNotificacion = Intent(context, MainActivity::class.java)
+            .putExtra("cargarMenu","Notificaciones")
+        val btnActualizar : FloatingActionButton = vista.findViewById(R.id.buttonNotificacionesActualizar)
 
-        cargarNotificaciones()
+        recyclerView = vista.findViewById(R.id.mostrarNotificacionesSolicitudAmistad)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
+        val sharedPreferences = context.getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
+        val nombreCuenta = sharedPreferences.getString("nombreCuenta", null)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            cargarNotificaciones(nombreCuenta.toString())
+        }
+
+        btnActualizar.setOnClickListener {
+            startActivity(intentNotificacion)
+        }
 
         // Inflate the layout for this fragment
         return vista
     }
 
-    private fun cargarNotificaciones() {
+    private fun cargarNotificaciones(nombreCuenta: String) {
         val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
         val queue = Volley.newRequestQueue(context, sslSocketFactory)
 
-        val request = JsonArrayRequest(Request.Method.GET, Constants.URL_RecibirSolicitudAmistad, null,
-            { response ->
-                estadoNotificaciones(response)
-            },
-            { error ->
-                Log.e("NotificacionesFragment", "Error: ${error.message}")
-            })
+        val url = "${Constants.URL_RecibirSolicitudAmistad}?usuarioRecibe=$nombreCuenta"
+
+        val request = JsonArrayRequest(Request.Method.GET, url, null, Response.Listener{
+            response ->
+                Log.d("NotificacionesFragment", "Respuesta del servidor: $response")
+                val notificaciones = mutableListOf<SolicitudAmistad>()
+                try {
+                    for (i in 0 until response.length()) {
+                        val solicitud = response.getJSONObject(i)
+                        notificaciones.add(
+                            SolicitudAmistad(
+                                solicitud.getString("usuarioEnvia"),
+                                solicitud.getString("usuarioRecibe"),
+                                solicitud.getString("estado")
+                            )
+                        )
+                    }
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+                    if (notificaciones.isEmpty()) {
+                        // Si no se encuentran notificaciones entonces no se muestra nada
+                        recyclerView.adapter = null
+                    } else {
+                        // Si se encuentra usuarios hay que ir actualizando
+                        notificacionAdapter = NotificacionAdapter(notificaciones)
+                        recyclerView.adapter = notificacionAdapter
+                    }
+            }
+        ) { error ->
+            // Manejar error
+            Log.e("NotificacionesFragment", "Error en la solicitud: ${error.message}")
+            error.printStackTrace()
+        }
 
         queue.add(request)
-    }
-
-    private fun estadoNotificaciones(response: JSONArray) {
-        for (i in 0 until response.length()) {
-            val jsonObject = response.getJSONObject(i)
-            val solicitudAmistad = SolicitudAmistad(
-                jsonObject.getString("usuarioEnvia"),
-                jsonObject.getString("usuarioRecibe"),
-                jsonObject.getString("estado")
-            )
-            notificaciones.add(solicitudAmistad)
-        }
-        notificacionAdapter.notifyDataSetChanged()
     }
 
     companion object {

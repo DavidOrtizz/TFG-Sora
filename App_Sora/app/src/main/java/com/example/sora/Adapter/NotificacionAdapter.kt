@@ -7,9 +7,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sora.R
-import com.example.sora.Datos.NotificacionResponse
+import com.example.sora.Datos.SolicitudAmistad
 
-class NotificacionAdapter(private val notificaciones: List<NotificacionResponse>) : RecyclerView.Adapter<NotificacionAdapter.MostrarNotificacion>() {
+class NotificacionAdapter(private val notificaciones: MutableList<SolicitudAmistad>) : RecyclerView.Adapter<NotificacionAdapter.MostrarNotificacion>() {
 
     class MostrarNotificacion(itemView: View) : RecyclerView.ViewHolder(itemView){
         val textNombreContactoEnvia: TextView = itemView.findViewById(R.id.textNotificationNombreContacto)
@@ -24,7 +24,7 @@ class NotificacionAdapter(private val notificaciones: List<NotificacionResponse>
 
     override fun onBindViewHolder(holder: MostrarNotificacion, position: Int) {
         val notificacion = notificaciones[position]
-        holder.textNombreContactoEnvia.text = notificacion.nombreUsuario
+        holder.textNombreContactoEnvia.text = notificacion.usuarioEnvia
 
         holder.btnAceptar.setOnClickListener {
 

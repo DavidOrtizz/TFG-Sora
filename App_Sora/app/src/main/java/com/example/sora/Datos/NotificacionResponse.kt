@@ -1,6 +1,7 @@
 package com.example.sora.Datos
 
 data class NotificacionResponse(
-    val id: Int,
-    val nombreUsuario: String
+    val nombreUsuario: String,
+    val usuarioRecibe: String,
+    val estado: String
 )
