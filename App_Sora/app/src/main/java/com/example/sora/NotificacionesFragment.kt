@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -67,6 +68,8 @@ class NotificacionesFragment : Fragment() {
 
         recyclerView = vista.findViewById(R.id.mostrarNotificacionesSolicitudAmistad)
         recyclerView.layoutManager = LinearLayoutManager(context)
+        notificacionAdapter = NotificacionAdapter(context, notificaciones)
+        recyclerView.adapter = notificacionAdapter
 
         val sharedPreferences = context.getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
         val nombreCuenta = sharedPreferences.getString("nombreCuenta", null)
@@ -76,6 +79,7 @@ class NotificacionesFragment : Fragment() {
         }
 
         btnActualizar.setOnClickListener {
+            Toast.makeText(context, R.string.actualizarNotificaciones, Toast.LENGTH_SHORT).show()
             startActivity(intentNotificacion)
         }
 
@@ -85,7 +89,7 @@ class NotificacionesFragment : Fragment() {
 
     private fun cargarNotificaciones(nombreCuenta: String) {
         val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
-        val queue = Volley.newRequestQueue(context, sslSocketFactory)
+        val queue = Volley.newRequestQueue(requireContext(), sslSocketFactory)
 
         val url = "${Constants.URL_RecibirSolicitudAmistad}?usuarioRecibe=$nombreCuenta"
 
@@ -111,9 +115,9 @@ class NotificacionesFragment : Fragment() {
                         // Si no se encuentran notificaciones entonces no se muestra nada
                         recyclerView.adapter = null
                     } else {
-                        // Si se encuentra usuarios hay que ir actualizando
-                        notificacionAdapter = NotificacionAdapter(notificaciones)
-                        recyclerView.adapter = notificacionAdapter
+                        this.notificaciones.clear()
+                        this.notificaciones.addAll(notificaciones)
+                        notificacionAdapter.notifyDataSetChanged()
                     }
             }
         ) { error ->

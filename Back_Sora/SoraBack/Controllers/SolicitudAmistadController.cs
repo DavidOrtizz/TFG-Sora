@@ -66,5 +66,40 @@ namespace SoraBack.Controllers
 
             return Ok(solicitudes);
         }
+
+        [AllowAnonymous]
+        [HttpPost("aceptarSolicitudAmistad")]
+        public IActionResult AceptarSolicitudAmistad([FromQuery] string usuarioEnvia, [FromQuery] string usuarioRecibe)
+        {
+            var solicitud = _dbContext.Amistades.FirstOrDefault(s => s.UsuarioEnvia.ToLower() == usuarioEnvia.ToLower() && s.UsuarioRecibe.ToLower() == usuarioRecibe.ToLower() && s.Estado == "Pendiente");
+
+            if (solicitud == null)
+            {
+                return NotFound("Solicitud de amistad no encontrada");
+            }
+
+            solicitud.Estado = "Aceptada";
+            _dbContext.SaveChanges();
+
+            return Ok(new { mensaje = "Solicitud de amistad aceptada" });
+        }
+
+        [AllowAnonymous]
+        [HttpPost("rechazarSolicitudAmistad")]
+        public IActionResult RechazarSolicitudAmistad([FromQuery] string usuarioEnvia, [FromQuery] string usuarioRecibe)
+        {
+            var solicitud = _dbContext.Amistades.FirstOrDefault(s => s.UsuarioEnvia.ToLower() == usuarioEnvia.ToLower() && s.UsuarioRecibe.ToLower() == usuarioRecibe.ToLower() && s.Estado == "Pendiente");
+
+            if (solicitud == null)
+            {
+                return NotFound("Solicitud de amistad no encontrada");
+            }
+
+            _dbContext.Amistades.Remove(solicitud);
+            _dbContext.SaveChanges();
+
+            return Ok(new { mensaje = "Solicitud de amistad rechazada" });
+        }
     }
 }
+

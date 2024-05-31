@@ -58,4 +58,7 @@
     <string name="verPerfil">View profile</string>
     <string name="avisoEnviarSolicitudAmistad">Friend request has been sent</string>
     <string name="avisoErrorSolicitudAmistad">Error sending friend request</string>
+    <string name="aceptarSolicitudAmistad">You have accepted the friend request</string>
+    <string name="rechazarSolicitudAmistad">You rejected the friend request</string>
+    <string name="actualizarNotificaciones">Updating...</string>
 </resources>
