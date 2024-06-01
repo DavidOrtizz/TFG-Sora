@@ -20,6 +20,9 @@ class Constants {
         const val URL_AceptarSolicitudAmistad = "https://" + IP_SERVER + "/api/SolicitudAmistad/aceptarSolicitudAmistad"
         const val URL_RechazarSolicitudAmistad = "https://" + IP_SERVER + "/api/SolicitudAmistad/rechazarSolicitudAmistad"
 
+        // Gestion Contactos
+        const val URL_ObtenerContactos = "https://" + IP_SERVER + "/api/Contactos/obtenerContactos"
+
         // Otros...
         const val URL_obtenerDatosUsuario = "https://" + IP_SERVER + "/api/Usuarios/obtenerDatosUsuario"
         const val URL_BuscarGrupo = "https://" + IP_SERVER + "/api/Usuarios/buscarGrupo"

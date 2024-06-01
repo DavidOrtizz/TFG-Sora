@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 
 class NotificacionAdapter(private val context: Context, private val notificaciones: MutableList<SolicitudAmistad>) : RecyclerView.Adapter<NotificacionAdapter.MostrarNotificacion>() {
 
-    class MostrarNotificacion(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class MostrarNotificacion(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textNombreContactoEnvia: TextView = itemView.findViewById(R.id.textNotificationNombreContacto)
         val btnAceptar: Button = itemView.findViewById(R.id.btnNotificacionAceptar)
         val btnRechazar: Button = itemView.findViewById(R.id.btnNotificacionRechazar)
@@ -48,52 +48,44 @@ class NotificacionAdapter(private val context: Context, private val notificacion
                 rechazarSolicitud(notificacion, position)
             }
         }
-
     }
 
     private fun aceptarSolicitud(notificacion: SolicitudAmistad, position: Int) {
         val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
         val queue = Volley.newRequestQueue(context, sslSocketFactory)
-
         val url = "${Constants.URL_AceptarSolicitudAmistad}?usuarioEnvia=${notificacion.usuarioEnvia}&usuarioRecibe=${notificacion.usuarioRecibe}"
 
-        val request = JsonObjectRequest(Request.Method.POST, url, null,
-            { response ->
-                Log.d("NotificacionAdapter", "Solicitud aceptada: $response")
-                notificaciones.removeAt(position)
-                notifyItemRemoved(position)
-                notifyItemRangeChanged(position, notificaciones.size)
-                Toast.makeText(context, R.string.aceptarSolicitudAmistad, Toast.LENGTH_SHORT).show()
-            },
-            { error ->
-                Log.e("NotificacionAdapter", "Error: ${error.message}")
-                error.printStackTrace()
-            }
-        )
+        val request = JsonObjectRequest(Request.Method.POST, url, null, {
+            response ->
+            Log.d("NotificacionAdapter", "Solicitud aceptada: $response")
+            notificaciones.removeAt(position)
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position, notificaciones.size)
+            Toast.makeText(context, R.string.aceptarSolicitudAmistad, Toast.LENGTH_SHORT).show()
+        }, { error ->
+            Log.e("NotificacionAdapter", "Error: ${error.message}")
+            error.printStackTrace()
+        })
 
         queue.add(request)
-
     }
 
     private fun rechazarSolicitud(notificacion: SolicitudAmistad, position: Int) {
         val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
         val queue = Volley.newRequestQueue(context, sslSocketFactory)
-
         val url = "${Constants.URL_RechazarSolicitudAmistad}?usuarioEnvia=${notificacion.usuarioEnvia}&usuarioRecibe=${notificacion.usuarioRecibe}"
 
-        val request = JsonObjectRequest(Request.Method.POST, url, null,
-            { response ->
-                Log.d("NotificacionAdapter", "Solicitud rechazada: $response")
-                notificaciones.removeAt(position)
-                notifyItemRemoved(position)
-                notifyItemRangeChanged(position, notificaciones.size)
-                Toast.makeText(context, R.string.rechazarSolicitudAmistad, Toast.LENGTH_SHORT).show()
-            },
-            { error ->
-                Log.e("NotificacionAdapter", "Error: ${error.message}")
-                error.printStackTrace()
-            }
-        )
+        val request = JsonObjectRequest(Request.Method.POST, url, null, {
+            response ->
+            Log.d("NotificacionAdapter", "Solicitud rechazada: $response")
+            notificaciones.removeAt(position)
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position, notificaciones.size)
+            Toast.makeText(context, R.string.rechazarSolicitudAmistad, Toast.LENGTH_SHORT).show()
+        }, { error ->
+            Log.e("NotificacionAdapter", "Error: ${error.message}")
+            error.printStackTrace()
+        })
 
         queue.add(request)
     }

@@ -27,6 +27,12 @@ namespace SoraBack.Controllers
         [HttpPost("enviarSolicitudAmistad")]
         public IActionResult EnviarSolicitudAmistad([FromBody] SolicitudAmistad solicitudAmistad)
         {
+
+            if (string.IsNullOrEmpty(solicitudAmistad.UsuarioEnvia) && string.IsNullOrEmpty(solicitudAmistad.UsuarioRecibe))
+            {
+                return BadRequest("No puede enviar solicitud de amistad si uno de los dos no existe xd");
+            }
+
             // Busca el usuario que envía la solicitud
             var usuarioBusca = _dbContext.Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == solicitudAmistad.UsuarioEnvia.ToLower());
             // Busca el usuario que recibe la solicitud
@@ -78,7 +84,7 @@ namespace SoraBack.Controllers
                 return NotFound("Solicitud de amistad no encontrada");
             }
 
-            solicitud.Estado = "Aceptada";
+            solicitud.Estado = "Aceptado";
             _dbContext.SaveChanges();
 
             return Ok(new { mensaje = "Solicitud de amistad aceptada" });
