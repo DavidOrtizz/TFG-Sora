@@ -57,7 +57,11 @@ Enlace para poder ver el video explicatorio: https://youtu.be/Dl5yziEjEYs
 [Cómo AÑADIR ANIMACIONES en Android Studio | Lottie Tutorial](https://youtu.be/h3ppaE8fBsQ?si=Diy-6Miozu7jyKeB) <br>
 [Android custom alert dialog](https://youtu.be/CAmUcMq-tsM?si=rrPmz5BwRpejP9ZW) <br>
 [Contact App | Tutorial 4 | Read Data & Show In RecyclerView](https://youtu.be/guQEbWEPv_4?si=EY86DZrFClYOYps8) <br>
-
+[Android Chat App Development | Tutorial #7 | Chat Screen Layout Design | Android Studio](https://youtu.be/234VQhaiT8o?si=OrRoiMNpVJcGY2N1) <br>
+[Android Chat App Development | Tutorial #8 | Chat Data Preparation & ChatAdapter | Android Studio](https://youtu.be/EnyJsp5bMzs?si=Sb29rIzavEuBCI1B) <br>
+[Android Chat App Development | Tutorial #9 | Realtime Chat Implementation | Android Studio](https://youtu.be/pAzby-pyStM?si=9i2JQ8uMLmAdcqXL) <br>
+[Lista Chat App with Firebase - Android Studio Tutorials](https://www.youtube.com/playlist?list=PLzLFqCABnRQftQQETzoVMuteXzNiXmnj8)<br>
+[Enviar notificaciones push con Firebase](https://youtu.be/u5vUyzX5usc?si=JkKkJgu_-i1cyjdt)
 
 # Histórico
 https://iridescent-mouth-151.notion.site/Diario-bf14cc3d327c4c48b455575e9ace07bc?pvs=4

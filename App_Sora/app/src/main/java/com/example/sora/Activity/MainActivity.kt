@@ -9,6 +9,7 @@ import com.example.sora.NotificacionesFragment
 import com.example.sora.PerfilFragment
 import com.example.sora.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
     // Instancias de los fragmentos
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Agrega esto en tu clase Application o en tu actividad principal
+        FirebaseApp.initializeApp(this)
 
         setContentView(R.layout.activity_main)
 

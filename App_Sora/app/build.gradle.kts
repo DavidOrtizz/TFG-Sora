@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
     id("com.google.gms.google-services")
 }
 
@@ -45,13 +46,15 @@ dependencies {
     implementation("androidx.activity:activity:1.9.0")
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.google.firebase:firebase-crashlytics-buildtools:3.0.0")
-    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation ("com.google.firebase:firebase-database-ktx")
     implementation("com.google.firebase:firebase-analytics")
     implementation ("io.jsonwebtoken:jjwt-api:0.11.2")
     implementation ("io.jsonwebtoken:jjwt-impl:0.11.2")
     implementation ("io.jsonwebtoken:jjwt-jackson:0.11.2")
     implementation ("com.airbnb.android:lottie:3.4.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation("com.makeramen:roundedimageview:2.3.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

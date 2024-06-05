@@ -64,9 +64,16 @@
     <string name="cerrar">Cerrar</string>
     <string name="enviarSolicitudAmistad">Enviar solicitud de amistad</string>
     <string name="verPerfil">Ver perfil</string>
-    <string name="avisoEnviarSolicitudAmistad">La solicitud de amistad a sido enviada</string>
+    <string name="avisoEnviarSolicitudAmistad">La solicitud de amistad ha sido enviada</string>
     <string name="avisoErrorSolicitudAmistad">Error al enviar solicitud de amistad</string>
     <string name="aceptarSolicitudAmistad">Has aceptado la solicitud de amistad</string>
     <string name="rechazarSolicitudAmistad">Has rechazado la solicitud de amistad</string>
     <string name="actualizarNotificaciones">Actualizando...</string>
+
+    <string name="escribirMensaje">Escribe un mensaje</string>
+    <string name="chat" translatable="false">Chat</string>
+    <string name="errorEnviarMensaje">Ha ocurrido un error al enviar el mensaje</string>
+    <string name="eliminarAmigo">Eliminar amigo</string>
+    <string name="errorEliminarContacto">Error al eliminar el contacto</string>
+    <string name="confirmacionContactoEliminado">El contacto se ha eliminado correctamente</string>
 </resources>

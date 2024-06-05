@@ -66,6 +66,7 @@ class ContactAdapter (private val contactos: List<UsuarioResponse>) : RecyclerVi
 
         btnAgregarContacto.setOnClickListener {
             enviarSolicitudAmistad(context, contacto)
+            dialog.dismiss()
         }
 
         btnCerrar.setOnClickListener {
@@ -89,8 +90,7 @@ class ContactAdapter (private val contactos: List<UsuarioResponse>) : RecyclerVi
             put("UsuarioRecibe", contacto.NombreCuenta)
         }
 
-        val request = object : JsonObjectRequest(Method.POST,
-            Constants.URL_EnviarSolicitudAmistad, jsonObject, Response.Listener {
+        val request = object : JsonObjectRequest(Method.POST, Constants.URL_EnviarSolicitudAmistad, jsonObject, Response.Listener {
             response ->
             Toast.makeText(context, R.string.avisoEnviarSolicitudAmistad, Toast.LENGTH_SHORT).show()
             Log.d("ContactAdapter", "Exito al enviar: $response")

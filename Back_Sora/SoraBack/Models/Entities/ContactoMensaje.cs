@@ -3,9 +3,9 @@
     public class ContactoMensaje
     {
         public int Id { get; set; }
-        public int EmisorId { get; set; }
-        public int ReceptorId { get; set; }
-        public string ContenidoMensaje { get; set; }
+        public string Emisor { get; set; }
+        public string Receptor { get; set; }
+        public string Contenido { get; set; }
 
         public SolicitudAmistad Contactos { get; set; }
     }

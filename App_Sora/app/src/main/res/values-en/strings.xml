@@ -61,4 +61,9 @@
     <string name="aceptarSolicitudAmistad">You have accepted the friend request</string>
     <string name="rechazarSolicitudAmistad">You rejected the friend request</string>
     <string name="actualizarNotificaciones">Updating...</string>
+    <string name="escribirMensaje">Write the message</string>
+    <string name="errorEnviarMensaje">An error has occurred when sending the message</string>
+    <string name="eliminarAmigo">Delete friend</string>
+    <string name="errorEliminarContacto">Error deleting contact</string>
+    <string name="confirmacionContactoEliminado">The contact has been successfully deleted</string>
 </resources>

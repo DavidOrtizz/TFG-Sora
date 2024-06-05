@@ -22,6 +22,7 @@ class Constants {
 
         // Gestion Contactos
         const val URL_ObtenerContactos = "https://" + IP_SERVER + "/api/Contactos/obtenerContactos"
+        const val URL_EliminarContactos = "https://" + IP_SERVER + "/api/Contactos/eliminarContacto"
 
         // Otros...
         const val URL_obtenerDatosUsuario = "https://" + IP_SERVER + "/api/Usuarios/obtenerDatosUsuario"

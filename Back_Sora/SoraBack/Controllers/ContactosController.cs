@@ -9,7 +9,7 @@ namespace SoraBack.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ContactosController : Controller
+    public class ContactosController : ControllerBase
     {
         private readonly DBContext _dbContext;
 
@@ -49,6 +49,21 @@ namespace SoraBack.Controllers
             Console.WriteLine($"Contactos encontrados: {contactos.Count}");
 
             return Ok(contactos);
+        }
+
+        [AllowAnonymous]
+        [HttpDelete("eliminarContacto")]
+        public IActionResult EliminarContacto([FromQuery] string usuario, [FromQuery] string contacto)
+        {
+            var usuarioCuenta = usuario.ToLower();
+            var contactoCuenta = contacto.ToLower();
+
+            var amistad = _dbContext.Amistades.FirstOrDefault(a => (a.UsuarioEnvia.ToLower() == usuarioCuenta && a.UsuarioRecibe.ToLower() == contactoCuenta) || (a.UsuarioEnvia.ToLower() == contactoCuenta && a.UsuarioRecibe.ToLower() == usuarioCuenta));
+
+            _dbContext.Amistades.Remove(amistad);
+            _dbContext.SaveChanges();
+
+            return Ok("Contacto eliminado correctamente.");
         }
 
     }

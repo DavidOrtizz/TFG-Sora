@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.EditText
@@ -17,6 +18,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.addTextChangedListener
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -50,28 +52,49 @@ class AjustesActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
 
+        // Función para mostrar u ocultar el botón guardar
+        fun mostrarBotonGuardar() {
+            val nombreNoVacio = !txtCambiarNombre.text.isNullOrBlank()
+            val descripcionNoVacia = !txtCambiarDescripcion.text.isNullOrBlank()
+
+            if (nombreNoVacio || descripcionNoVacia) {
+                btnGuardar.show()
+            } else {
+                btnGuardar.hide()
+            }
+        }
+
+        txtCambiarNombre.addTextChangedListener {
+            mostrarBotonGuardar()
+        }
+
+        txtCambiarDescripcion.addTextChangedListener {
+            mostrarBotonGuardar()
+        }
+
         btnGuardar.setOnClickListener {
             val nombreCuenta = sharedPreferences.getString("nombreCuenta", null)
             var cambiarNombre = txtCambiarNombre.text.toString()
             var cambiarDescripcion = txtCambiarDescripcion.text.toString()
 
-            if (!cambiarNombre.isNullOrBlank()){
-                // Crear una instancia de RequestQueue
-                val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
-                val queue = Volley.newRequestQueue(this, sslSocketFactory)
+            // Crear una instancia de RequestQueue
+            val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
+            val queue = Volley.newRequestQueue(this, sslSocketFactory)
 
-                // Crear el objeto JSON con los datos del usuario
-                val jsonObject = JSONObject()
-                jsonObject.put("NombreCuenta", nombreCuenta)
+            // Crear el objeto JSON con los datos del usuario
+            val jsonObject = JSONObject()
+            jsonObject.put("NombreCuenta", nombreCuenta)
+            if (!cambiarNombre.isNullOrBlank()) { // Controlo que el nombre no sea vacio
                 jsonObject.put("NombreUsuario", cambiarNombre)
-                jsonObject.put("Descripcion", cambiarDescripcion)
+            }
+            if (!cambiarDescripcion.isNullOrBlank()){
+                jsonObject.put("Descripcion", cambiarDescripcion) // Controlo la descripcion
+            }
+            Log.d("AjustesActivity", "Se envia como datos: NombreCuenta: $nombreCuenta , NombreUsuario: $cambiarNombre y descripcion: $cambiarDescripcion")
 
-                Log.d("AjustesActivity", "Se envia como datos: NombreCuenta: $nombreCuenta , NombreUsuario: $cambiarNombre y descripcion: $cambiarDescripcion")
-
-                // Crear la solicitud de registro
-                val ajustesRequest = object : StringRequest(
-                    Request.Method.PUT, Constants.URL_ModificarDatosUsuario, Response.Listener {
-                        response ->
+            // Crear la solicitud de registro
+            val ajustesRequest = object : StringRequest(Request.Method.PUT, Constants.URL_ModificarDatosUsuario, Response.Listener {
+                response ->
                     try {
                         Log.d("AjustesActivity", "Respuesta del servidor: $response")
 
@@ -86,8 +109,12 @@ class AjustesActivity : AppCompatActivity() {
                             Toast.makeText(this, R.string.exitoModificacion, Toast.LENGTH_SHORT).show()
 
                             sharedPreferences.edit().apply {
-                                putString("nombreUsuario", cambiarNombre)
-                                putString("descripcion", cambiarDescripcion)
+                                if (!cambiarNombre.isNullOrBlank()) { // Controlo que el nombre no sea vacio
+                                    putString("nombreUsuario", cambiarNombre)
+                                }
+                                if (!cambiarDescripcion.isNullOrBlank()){
+                                    putString("descripcion", cambiarDescripcion)
+                                }
                                 apply()
                             }
                         } else {
@@ -98,27 +125,24 @@ class AjustesActivity : AppCompatActivity() {
                         e.printStackTrace()
                     }
                 },
-                    Response.ErrorListener { error ->
-                        error.printStackTrace()
-                        // Manejar errores de la solicitud
-                        Toast.makeText(this, R.string.errorModificarDaros, Toast.LENGTH_SHORT).show()
-                        Log.d("AjustesActivity", error.toString())
-                    }) {
-                    override fun getBody(): ByteArray {
-                        return jsonObject.toString().toByteArray()
-                    }
-
-                    override fun getBodyContentType(): String {
-                        return "application/json; charset=utf-8"
-                    }
+                Response.ErrorListener { error ->
+                    error.printStackTrace()
+                    // Manejar errores de la solicitud
+                    Toast.makeText(this, R.string.errorModificarDaros, Toast.LENGTH_SHORT).show()
+                    Log.d("AjustesActivity", error.toString())
+                }) {
+                override fun getBody(): ByteArray {
+                    return jsonObject.toString().toByteArray()
                 }
 
-                // Agregar la solicitud a la cola
-                queue.add(ajustesRequest)
-            } else {
-                // Aviso por nombre usuario
-                Toast.makeText(this, R.string.errorNombreUsuario, Toast.LENGTH_SHORT).show()
+                override fun getBodyContentType(): String {
+                    return "application/json; charset=utf-8"
+                }
             }
+
+            txtCambiarNombre.text.clear()
+            txtCambiarDescripcion.text.clear()
+            queue.add(ajustesRequest)
         }
 
         btnVolver.setOnClickListener {
@@ -196,6 +220,7 @@ class AjustesActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    // No funciona :/
     private fun actualizarIconoPerfil(icono: String) {
         val sharedPreferences = getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
         val nombreCuenta = sharedPreferences.getString("nombreCuenta", null)

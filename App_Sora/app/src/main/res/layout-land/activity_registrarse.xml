@@ -78,7 +78,8 @@
             android:id="@+id/textRepiteContrasena"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/correo" />
+            android:hint="@string/correo"
+            android:inputType="textEmailAddress"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
