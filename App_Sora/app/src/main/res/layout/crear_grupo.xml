@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/fondo_menu"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="15dp">
+
+
+    <RelativeLayout
+        android:id="@+id/limites"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/crearGrupo"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="16dp"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white">
+
+        <EditText
+            android:id="@+id/textNombreGrupo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/escribeNombreGrupo"
+            android:textSize="14sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonCrear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:text="@string/crear"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+
+    <Button
+        android:id="@+id/buttonCerrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="175dp"
+        android:text="@string/cerrar"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorIcono_celeste"
+        android:backgroundTint="@color/fondo_menu"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+</androidx.cardview.widget.CardView>

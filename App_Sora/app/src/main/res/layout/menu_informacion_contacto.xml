@@ -29,7 +29,7 @@
             android:text="@string/cerrar"
             android:layout_margin="5dp"
             android:textStyle="bold"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/fondo_menu_oscuro"/>
+            android:textColor="@color/colorIcono_celeste"
+            android:backgroundTint="@color/fondo_menu"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

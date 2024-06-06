@@ -47,7 +47,7 @@
     <string name="agregarContacto">Agregar contacto</string>
     <string name="agregarGrupo">Agregar grupo</string>
     <string name="comoAgregarContacto">Envia una petición de solicitud de amistad a cualquier usuario solo introduciendo su nombre de cuenta</string>
-    <string name="comoAgregarGrupo">Envia una petición de solicitud a cualquier grupo solo introduciendo su nombre</string>
+    <string name="comoAgregarGrupo">Envia una petición de solicitud a cualquier grupo o buscalo introduciendo su nombre</string>
 
     <string name="confirmarCerrarSesion">¿Estás seguro de que quieres cerrar la sesión?</string>
     <string name="si">Si</string>
@@ -76,4 +76,12 @@
     <string name="eliminarAmigo">Eliminar amigo</string>
     <string name="errorEliminarContacto">Error al eliminar el contacto</string>
     <string name="confirmacionContactoEliminado">El contacto se ha eliminado correctamente</string>
+    <string name="crearGrupo">Crear nuevo grupo</string>
+    <string name="escribeNombreGrupo">Escribe el nombre del nuevo grupo</string>
+    <string name="crear">Crear</string>
+    <string name="errorNombreGrupo">Introduce un nombre al grupo</string>
+    <string name="exitoCreacionGrupo">El grupo se ha creado correctamente</string>
+    <string name="errorCreacionGrupo">Ha ocurrido un error al crear el grupo</string>
+    <string name="nombreGrupo">Nombre grupo</string>
+    <string name="errorCargarGrupo">Error al cargar los grupos</string>
 </resources>

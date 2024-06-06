@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    android:backgroundTint="@color/fondo_oscuro"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:id="@+id/Grupo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/IconoPerfil"
+            android:layout_width="50dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icono_grupos"/>
+
+        <TextView
+            android:id="@+id/textNombreGrupo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nombreGrupo"
+            android:textColor="@color/white"
+            android:layout_toEndOf="@id/IconoPerfil"
+            android:layout_marginTop="23dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

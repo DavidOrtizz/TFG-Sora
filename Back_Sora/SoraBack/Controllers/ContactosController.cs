@@ -26,11 +26,6 @@ namespace SoraBack.Controllers
         [HttpGet("obtenerContactos")]
         public IActionResult ObtenerContactos([FromQuery] string usuario)
         {
-            if (string.IsNullOrEmpty(usuario))
-            {
-                return BadRequest("El usuario no puede estar vacio.");
-            }
-
             var usuarioCuenta = usuario.ToLower();
             Console.WriteLine($"Buscando contactos del usuario: {usuarioCuenta}");
 
@@ -63,7 +58,7 @@ namespace SoraBack.Controllers
             _dbContext.Amistades.Remove(amistad);
             _dbContext.SaveChanges();
 
-            return Ok("Contacto eliminado correctamente.");
+            return Ok("Contacto eliminado correctamente");
         }
 
     }

@@ -5,7 +5,6 @@
         public int GrupoId { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-
-        public int CreadorId { get; set; }
+        public List<Usuario> Usuarios { get; set; }
     }
 }

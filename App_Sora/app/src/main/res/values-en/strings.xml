@@ -66,4 +66,12 @@
     <string name="eliminarAmigo">Delete friend</string>
     <string name="errorEliminarContacto">Error deleting contact</string>
     <string name="confirmacionContactoEliminado">The contact has been successfully deleted</string>
+    <string name="crearGrupo">Create new group</string>
+    <string name="escribeNombreGrupo">Write the name of the new group</string>
+    <string name="crear">Create</string>
+    <string name="errorNombreGrupo">Enter a name for the group</string>
+    <string name="exitoCreacionGrupo">The group has been created successfully</string>
+    <string name="errorCreacionGrupo">An error occurred while creating the group</string>
+    <string name="nombreGrupo">Group name</string>
+    <string name="errorCargarGrupo">Error loading groups</string>
 </resources>

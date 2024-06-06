@@ -1,10 +1,14 @@
 package com.example.sora
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.sora.Activity.MenuAgregarGrupo
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +38,17 @@ class GruposFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_grupos, container, false)
+        val view = inflater.inflate(R.layout.fragment_grupos, container, false)
+
+        val btnAgregarGrupo = view.findViewById<FloatingActionButton>(R.id.buttonGrupos)
+        val reciclerViewGrupos = view.findViewById<RecyclerView>(R.id.gruposRv)
+        val intentAgregarGrupos = Intent(context, MenuAgregarGrupo::class.java)
+
+        btnAgregarGrupo.setOnClickListener {
+            startActivity(intentAgregarGrupos)
+        }
+
+        return view
     }
 
     companion object {

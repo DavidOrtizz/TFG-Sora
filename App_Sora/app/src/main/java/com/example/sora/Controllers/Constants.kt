@@ -24,7 +24,12 @@ class Constants {
         const val URL_ObtenerContactos = "https://" + IP_SERVER + "/api/Contactos/obtenerContactos"
         const val URL_EliminarContactos = "https://" + IP_SERVER + "/api/Contactos/eliminarContacto"
 
-        // Otros...
+        // Gestion grupos
+        const val URL_CrearGrupo = "https://" + IP_SERVER + "/api/Grupo/crearGrupo"
+        const val URL_ObtenerGrupos = "https://" + IP_SERVER + "/api/Grupo/obtenerGrupos"
+        const val URL_BuscarGrupos = "https://" + IP_SERVER + "/api/Grupo/buscarGrupos"
+
+        // Sin usar...
         const val URL_obtenerDatosUsuario = "https://" + IP_SERVER + "/api/Usuarios/obtenerDatosUsuario"
         const val URL_BuscarGrupo = "https://" + IP_SERVER + "/api/Usuarios/buscarGrupo"
     }
