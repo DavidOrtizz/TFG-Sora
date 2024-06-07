@@ -27,7 +27,7 @@ namespace SoraBack.Controllers
             _dbContext.Grupos.Add(grupo);
             _dbContext.SaveChanges();
 
-            return Ok(grupo);
+            return Ok(new {grupoId = grupo.GrupoId, nombre = grupo.Nombre});
         }
 
 
@@ -35,7 +35,7 @@ namespace SoraBack.Controllers
         public IActionResult ObtenerGrupos()
         {
             var grupos = _dbContext.Grupos.Include(g => g.Usuarios)
-                            .Select(g => new { Nombre = g.Nombre })
+                            .Select(g => new { id = g.GrupoId, nombre = g.Nombre })
                             .ToList();
             return Ok(grupos);
         }
@@ -68,6 +68,29 @@ namespace SoraBack.Controllers
 
             Console.WriteLine("No se encontraron grupos");
             return BadRequest(new { mensaje = "No se encontraron grupos" });
+        }
+
+        [AllowAnonymous]
+        [HttpPost("unirseGrupo")]
+        public IActionResult UnirseGrupo([FromBody] UnirseGrupo unirseGrupo)
+        {
+            var usuario = _dbContext.Usuarios.Find(unirseGrupo.UsuarioId);
+            var grupo = _dbContext.Grupos
+                .Include(g => g.Usuarios)
+                .FirstOrDefault(g => g.GrupoId == unirseGrupo.GrupoId);
+
+            if (usuario == null || grupo == null)
+            {
+                return NotFound(new { mensaje = "Usuario o Grupo no encontrado" });
+            }
+
+            if (!grupo.Usuarios.Contains(usuario))
+            {
+                grupo.Usuarios.Add(usuario);
+                _dbContext.SaveChanges();
+            }
+
+            return Ok(new { mensaje = "El usuario se ha unido al grupo" });
         }
     }
 }

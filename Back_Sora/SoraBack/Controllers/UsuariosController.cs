@@ -93,6 +93,7 @@ namespace SoraBack.Controllers
                 return Ok(new
                 {
                     token = stringToken,
+                    id = usuarioEncontrado.UsuarioId,
                     nombreUsuario = usuarioEncontrado.NombreUsuario,
                     nombreCuenta = usuarioEncontrado.NombreCuenta,
                     descripcion = usuarioEncontrado.Descripcion

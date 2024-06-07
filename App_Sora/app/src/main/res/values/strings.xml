@@ -84,4 +84,7 @@
     <string name="errorCreacionGrupo">Ha ocurrido un error al crear el grupo</string>
     <string name="nombreGrupo">Nombre grupo</string>
     <string name="errorCargarGrupo">Error al cargar los grupos</string>
+    <string name="unirse">Unirse</string>
+    <string name="exitoUnirseGrupo">Te has unido al grupo con éxito</string>
+    <string name="errorUnirseGrupo">Ha ocurrido un error al unirte al grupo</string>
 </resources>

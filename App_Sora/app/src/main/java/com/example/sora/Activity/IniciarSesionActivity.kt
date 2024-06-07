@@ -64,6 +64,7 @@ class IniciarSesionActivity : AppCompatActivity() {
                 Constants.URL_LOGIN, jsonBody, Response.Listener {
                 response ->
                     val token = response.getString("token")
+                    val idUsuario = response.getInt("id")
                     val nombreUsuario = response.getString("nombreUsuario")
                     val nombreCuenta = response.getString("nombreCuenta")
                     val descripcion = response.getString("descripcion")
@@ -71,6 +72,7 @@ class IniciarSesionActivity : AppCompatActivity() {
                     val sharedPreferences = getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
                     sharedPreferences.edit().apply {
                         putString("token", token)
+                        putInt("id",idUsuario)
                         putString("nombreUsuario", nombreUsuario)
                         putString("nombreCuenta", nombreCuenta)
                         putString("descripcion", descripcion)

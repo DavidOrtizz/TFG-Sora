@@ -1,6 +1,7 @@
 package com.example.sora.Activity
 
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -56,9 +57,12 @@ class MenuAgregarGrupo : AppCompatActivity() {
         val btnCrearGrupo = findViewById<FloatingActionButton>(R.id.buttonCrearGrupo)
         recyclerViewMostrarGrupos = findViewById(R.id.gruposRv)
 
+        val sharedPreferences = getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
+        val id = sharedPreferences.getInt("id", 0)
+
         // Configuración del RecyclerView
         recyclerViewMostrarGrupos.layoutManager = LinearLayoutManager(this)
-        gruposAdapter = GruposAdapter(grupos)
+        gruposAdapter = GruposAdapter(grupos, id)
         recyclerViewMostrarGrupos.adapter = gruposAdapter
 
         btnVolver.setOnClickListener {
@@ -124,8 +128,6 @@ class MenuAgregarGrupo : AppCompatActivity() {
     private fun crearGrupo(nombreGrupo: String) {
         Log.d("CrearGrupo","El nombre del grupo es: $nombreGrupo")
 
-        val grupo = GrupoResponse(nombreGrupo)
-
         val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
         val queue = Volley.newRequestQueue(this, sslSocketFactory)
 
@@ -135,8 +137,13 @@ class MenuAgregarGrupo : AppCompatActivity() {
 
         val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, Constants.URL_CrearGrupo, jObject,
             { response ->
-                Toast.makeText(this, R.string.exitoCreacionGrupo, Toast.LENGTH_SHORT).show()
-                cargarGrupos() // Recargo los grupos al crearlo
+                try {
+                    val grupoId = response.getInt("grupoId")
+                    Toast.makeText(this, R.string.exitoCreacionGrupo, Toast.LENGTH_SHORT).show()
+                    cargarGrupos() // Recargo los grupos al crearlo
+                } catch (e: JSONException){
+                    Log.e("CrearGrupo", "Error: ${e.message}")
+                }
             },
             { error ->
                 Toast.makeText(this, R.string.errorCreacionGrupo, Toast.LENGTH_SHORT).show()
@@ -156,9 +163,12 @@ class MenuAgregarGrupo : AppCompatActivity() {
                 val grupo = response.getJSONObject(i)
                 Log.d("cargarGrupos", "Grupo recibido: $grupo")
                 try {
+                    val id = grupo.getInt("id")
+                    val nombre = grupo.getString("nombre")
                     nuevosGrupos.add(
                         GrupoResponse(
-                            grupo.getString("nombre")
+                            id,
+                            nombre
                         )
                     )
                 } catch (e: JSONException) {
@@ -199,6 +209,7 @@ class MenuAgregarGrupo : AppCompatActivity() {
                     if (grupo.has("nombre")) {
                         nuevosGrupos.add(
                             GrupoResponse(
+                                grupo.getInt("id"),
                                 grupo.getString("nombre")
                             )
                         )
