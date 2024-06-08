@@ -55,7 +55,8 @@ namespace SoraBack.Controllers
                 .Where(u => u.Nombre.ToLower().Contains(grupo.Nombre.ToLower()))
                 .Select(u => new
                 {
-                    Nombre = u.Nombre
+                    id = u.GrupoId,
+                    nombre = u.Nombre
                 })
                 .ToList();
 
@@ -72,25 +73,31 @@ namespace SoraBack.Controllers
 
         [AllowAnonymous]
         [HttpPost("unirseGrupo")]
-        public IActionResult UnirseGrupo([FromBody] UnirseGrupo unirseGrupo)
+        public IActionResult UnirseGrupo(int usuarioId, int grupoId)
         {
-            var usuario = _dbContext.Usuarios.Find(unirseGrupo.UsuarioId);
-            var grupo = _dbContext.Grupos
-                .Include(g => g.Usuarios)
-                .FirstOrDefault(g => g.GrupoId == unirseGrupo.GrupoId);
+            var usuario = _dbContext.Usuarios.Find(usuarioId);
+            var grupo = _dbContext.Grupos.Include(g => g.Usuarios).FirstOrDefault(g => g.GrupoId == grupoId);
 
-            if (usuario == null || grupo == null)
+            if (grupo.Usuarios == null)
             {
-                return NotFound(new { mensaje = "Usuario o Grupo no encontrado" });
+                grupo.Usuarios = new List<Usuario>();
             }
 
-            if (!grupo.Usuarios.Contains(usuario))
-            {
-                grupo.Usuarios.Add(usuario);
-                _dbContext.SaveChanges();
-            }
+            grupo.Usuarios.Add(usuario);
+            _dbContext.SaveChanges();
 
-            return Ok(new { mensaje = "El usuario se ha unido al grupo" });
+            return Ok(new { mensaje = "Usuario añadido al grupo" });
+        }
+
+        [AllowAnonymous]
+        [HttpGet("mostrarGruposUnidos/{usuarioId}")]
+        public IActionResult MostrarGruposUnidos(int usuarioId)
+        {
+            var usuario = _dbContext.Usuarios.Include(u => u.Grupos).FirstOrDefault(u => u.UsuarioId == usuarioId);
+
+            var grupos = usuario.Grupos.Select(g => new { id = g.GrupoId, nombre = g.Nombre }).ToList();
+
+            return Ok(grupos);
         }
     }
 }

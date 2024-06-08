@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.sora.Controllers.Constants
 import com.example.sora.Controllers.SSLSocketFactoryUtil
@@ -37,7 +38,7 @@ class GruposAdapter(private val grupos: List<GrupoResponse>, private val usuario
         holder.nombreGrupo.text = grupo.Nombre
 
         holder.btnUnirse.setOnClickListener {
-            unirse(holder.itemView.context, grupo.Id)
+            unirse(holder.itemView.context, usuarioId ,grupo.Id)
         }
     }
 
@@ -45,27 +46,21 @@ class GruposAdapter(private val grupos: List<GrupoResponse>, private val usuario
         return grupos.size
     }
 
-    private fun unirse(context: Context, grupoId: Int) {
+    private fun unirse(context: Context, usuarioId: Int, grupoId: Int) {
         val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
         val queue = Volley.newRequestQueue(context, sslSocketFactory)
 
+        val url = "${Constants.URL_UnirseGrupo}?usuarioId=$usuarioId&grupoId=$grupoId"
+
         Log.d("GruposAdapter", "Datos que se envian: UsuarioId: $usuarioId , GrupoId: $grupoId")
 
-        val requestBody = JSONObject().apply {
-            put("UsuarioId", usuarioId)
-            put("GrupoId", grupoId)
-        }
-
-        val request = JsonObjectRequest(Request.Method.POST, Constants.URL_UnirseGrupo, requestBody, {
+        val request = StringRequest(Request.Method.POST, url, {
             response ->
-                Log.d("GruposAdapter", "Respuesta del servidor: $response")
-                Toast.makeText(context, R.string.exitoUnirseGrupo, Toast.LENGTH_SHORT).show()
-            },
-            { error ->
-                Log.e("GruposAdapter", "Error: ${error.message}")
-                Toast.makeText(context, R.string.errorUnirseGrupo, Toast.LENGTH_SHORT).show()
-                error.printStackTrace()
-            })
+            Toast.makeText(context, R.string.exitoUnirseGrupo, Toast.LENGTH_SHORT).show()
+        }, { error ->
+            Log.e("GruposAdapter", "Error: ${error.message}")
+            Toast.makeText(context, R.string.errorUnirseGrupo, Toast.LENGTH_SHORT).show()
+        })
 
         queue.add(request)
     }

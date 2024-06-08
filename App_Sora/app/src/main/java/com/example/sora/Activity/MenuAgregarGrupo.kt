@@ -159,6 +159,7 @@ class MenuAgregarGrupo : AppCompatActivity() {
 
         val request = JsonArrayRequest(Request.Method.GET, Constants.URL_ObtenerGrupos, null, { response ->
             val nuevosGrupos = mutableListOf<GrupoResponse>()
+
             for (i in 0 until response.length()) {
                 val grupo = response.getJSONObject(i)
                 Log.d("cargarGrupos", "Grupo recibido: $grupo")
@@ -196,26 +197,19 @@ class MenuAgregarGrupo : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.gruposRv)
 
         val jsonObject = JSONObject().apply {
-            put("Nombre", nombreGrupo) // Modificar aquí para que coincida con la clave esperada en el servidor
+            put("Nombre", nombreGrupo)
         }
 
-        val request = object : JsonObjectRequest(Request.Method.POST, Constants.URL_BuscarGrupos, jsonObject, Response.Listener { response ->
+        val request = object : JsonObjectRequest(Request.Method.POST, Constants.URL_BuscarGrupos, jsonObject, { response ->
             Log.d("MenuAgregarGrupo", "Respuesta del servidor: $response")
             val nuevosGrupos = mutableListOf<GrupoResponse>()
             try {
                 val jsonArray = response.getJSONArray("grupos")
                 for (i in 0 until jsonArray.length()) {
                     val grupo = jsonArray.getJSONObject(i)
-                    if (grupo.has("nombre")) {
-                        nuevosGrupos.add(
-                            GrupoResponse(
-                                grupo.getInt("id"),
-                                grupo.getString("nombre")
-                            )
-                        )
-                    } else {
-                        Log.e("MenuAgregarGrupo", "Objeto JSON no contiene 'nombre'")
-                    }
+                    val id = grupo.getInt("id")
+                    val nombre = grupo.getString("nombre")
+                    nuevosGrupos.add(GrupoResponse(id, nombre))
                 }
             } catch (e: JSONException) {
                 e.printStackTrace()
@@ -227,7 +221,7 @@ class MenuAgregarGrupo : AppCompatActivity() {
                 grupos.addAll(nuevosGrupos)
                 gruposAdapter.notifyDataSetChanged()
             }
-        }, Response.ErrorListener { error ->
+        }, { error ->
             // Manejar error
             Log.e("MenuBuscarGrupo", "Error en la solicitud: ${error.message}")
             error.printStackTrace()

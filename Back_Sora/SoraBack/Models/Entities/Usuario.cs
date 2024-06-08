@@ -14,5 +14,6 @@ namespace SoraBack.Models.Entities
         public string IconoPerfil { get; set; }
         public string Rol {  get; set; }
 
+        public List<Grupo> Grupos { get; set; }
     }
 }

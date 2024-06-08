@@ -33,17 +33,25 @@ namespace SoraBack.Controllers
             var usuarioRecibe = _dbContext.Usuarios.FirstOrDefault(u => u.NombreCuenta.ToLower() == solicitudAmistad.UsuarioRecibe.ToLower());
 
             // Crear una nueva solicitud de amistad
-            var nuevaSolicitud = new SolicitudAmistad
+            if (usuarioBusca != null && usuarioRecibe != null)
             {
-                UsuarioEnvia = usuarioBusca.NombreCuenta,
-                UsuarioRecibe = usuarioRecibe.NombreCuenta,
-                Estado = "Pendiente"
-            };
+                var nuevaSolicitud = new SolicitudAmistad
+                {
+                    UsuarioEnvia = usuarioBusca.NombreCuenta,
+                    UsuarioRecibe = usuarioRecibe.NombreCuenta,
+                    Estado = "Pendiente"
+                };
 
-            _dbContext.Amistades.Add(nuevaSolicitud);
-            _dbContext.SaveChanges();
+                _dbContext.Amistades.Add(nuevaSolicitud);
+                _dbContext.SaveChanges();
 
-            return Ok(new { mensaje = "Solicitud de amistad enviada" });
+                return Ok(new { mensaje = "Solicitud de amistad enviada" });
+            }
+            else
+            {
+                // No se encuentra los usuarios
+                return NotFound();
+            }
         }
 
         [AllowAnonymous]
