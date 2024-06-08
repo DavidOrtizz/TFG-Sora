@@ -78,6 +78,11 @@ namespace SoraBack.Controllers
             var usuario = _dbContext.Usuarios.Find(usuarioId);
             var grupo = _dbContext.Grupos.Include(g => g.Usuarios).FirstOrDefault(g => g.GrupoId == grupoId);
 
+            if (grupo == null)
+            {
+                return NotFound(new { mensaje = "El grupo no existe" }); // Si el grupo no existe
+            }
+
             if (grupo.Usuarios == null)
             {
                 grupo.Usuarios = new List<Usuario>();
@@ -95,9 +100,16 @@ namespace SoraBack.Controllers
         {
             var usuario = _dbContext.Usuarios.Include(u => u.Grupos).FirstOrDefault(u => u.UsuarioId == usuarioId);
 
-            var grupos = usuario.Grupos.Select(g => new { id = g.GrupoId, nombre = g.Nombre }).ToList();
-
-            return Ok(grupos);
+            if (usuario != null)
+            {
+                var grupos = usuario.Grupos.Select(g => new { id = g.GrupoId, nombre = g.Nombre }).ToList();
+                return Ok(grupos);
+            }
+            else
+            {
+                // Si no se encuentra el usuario
+                return NotFound();
+            }
         }
     }
 }

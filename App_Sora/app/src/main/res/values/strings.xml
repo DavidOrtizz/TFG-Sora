@@ -87,4 +87,5 @@
     <string name="unirse">Unirse</string>
     <string name="exitoUnirseGrupo">Te has unido al grupo con éxito</string>
     <string name="errorUnirseGrupo">Ha ocurrido un error al unirte al grupo</string>
+    <string name="google">Google</string>
 </resources>

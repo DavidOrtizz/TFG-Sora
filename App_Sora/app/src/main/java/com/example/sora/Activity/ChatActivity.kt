@@ -123,6 +123,7 @@ class ChatActivity : AppCompatActivity() {
     // Carga todos los mensajes que han enviado los usuarios
     private fun cargarMensajes(emisor: String?, receptor: String?) {
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+        progressBar.visibility = View.VISIBLE
 
         // Cargará los mensajes cuando el emisor y el receptor no sean nulos
         if (emisor != null && receptor != null) {
@@ -137,13 +138,13 @@ class ChatActivity : AppCompatActivity() {
                     for (mensajeSnapshot in snapshot.children) {
                         val mensaje = mensajeSnapshot.getValue(MensajeResponse::class.java)
                         if (mensaje != null) {
-                            progressBar.visibility = View.GONE
                             mensajes.add(mensaje)
                         }
                     }
                     // Actualiza la interfaz para mostrar los mensajes nuevos
                     runOnUiThread {
                         adapter.notifyDataSetChanged()
+                        progressBar.visibility = View.GONE
                     }
                 }
 

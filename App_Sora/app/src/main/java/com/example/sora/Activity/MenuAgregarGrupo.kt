@@ -140,6 +140,10 @@ class MenuAgregarGrupo : AppCompatActivity() {
                 try {
                     val grupoId = response.getInt("grupoId")
                     Toast.makeText(this, R.string.exitoCreacionGrupo, Toast.LENGTH_SHORT).show()
+
+                    // Creo el grupo y me uno automaticamente
+                    unirseAGrupo(grupoId)
+
                     cargarGrupos() // Recargo los grupos al crearlo
                 } catch (e: JSONException){
                     Log.e("CrearGrupo", "Error: ${e.message}")
@@ -147,6 +151,30 @@ class MenuAgregarGrupo : AppCompatActivity() {
             },
             { error ->
                 Toast.makeText(this, R.string.errorCreacionGrupo, Toast.LENGTH_SHORT).show()
+            }
+        )
+
+        queue.add(jsonObjectRequest)
+    }
+
+    private fun unirseAGrupo(grupoId: Int) {
+        val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
+        val queue = Volley.newRequestQueue(this, sslSocketFactory)
+
+        val sharedPreferences = getSharedPreferences("com.example.sora.DatosUsuario", Context.MODE_PRIVATE)
+        val id = sharedPreferences.getInt("id", 0)
+
+        val jObject = JSONObject().apply {
+            put("usuarioId", id)
+            put("grupoId", grupoId)
+        }
+
+        val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, Constants.URL_UnirseGrupo, jObject, {
+            response ->
+                Toast.makeText(this, R.string.exitoUnirseGrupo, Toast.LENGTH_SHORT).show()
+            },
+            { error ->
+                Toast.makeText(this, R.string.errorUnirseGrupo, Toast.LENGTH_SHORT).show()
             }
         )
 

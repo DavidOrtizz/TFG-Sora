@@ -67,7 +67,7 @@ class ChatGrupoActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().getReference("grupos/$grupoId/mensajes")
 
         val intentVolver = Intent(this, MainActivity::class.java)
-            .putExtra("cargarMenu", "Contactos")
+            .putExtra("cargarMenu", "Grupos")
 
         // Volver al menú de contactos
         btnVolver.setOnClickListener {
