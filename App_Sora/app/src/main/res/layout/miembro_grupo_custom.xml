@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    android:backgroundTint="@color/fondo_oscuro"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:id="@+id/Contacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/IconoPerfil"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/icono_defecfo0"/>
+
+        <TextView
+            android:id="@+id/textNombreUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nombreUsuario"
+            android:textColor="@color/white"
+            android:layout_toEndOf="@id/IconoPerfil"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/textNombreCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nombreCuenta"
+            android:layout_toEndOf="@id/IconoPerfil"
+            android:textSize="15sp"
+            android:layout_marginTop="45dp"/>
+
+        <Button
+            android:id="@+id/buttonEliminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/eliminar"
+            android:textColor="@color/rojo"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="260dp"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

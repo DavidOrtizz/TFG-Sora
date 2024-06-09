@@ -1,9 +1,14 @@
 package com.example.sora.Activity
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.Window
+import android.widget.Button
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ProgressBar
@@ -75,9 +80,23 @@ class ChatGrupoActivity : AppCompatActivity() {
             finish()
         }
 
-        // Botón para entrar en la informacion del receptor y donde se puede eliminar de amigos
+        // Boton que solo puede acceder el administrador para entrar en los ajustes del grupo
         btnInfo.setOnClickListener {
-            // Aquí puedes añadir la lógica para el botón de información
+            val dialog = Dialog(this)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setCancelable(false)
+            dialog.setContentView(R.layout.info_grupo)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            val textNombreGrupo = dialog.findViewById<TextView>(R.id.textNombreGrupo)
+            val btnCerrar = dialog.findViewById<Button>(R.id.buttonCerrar)
+            val btnEliminar = dialog.findViewById<Button>(R.id.buttonEliminar)
+
+            btnCerrar.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            dialog.show()
         }
 
         // Cuando se pulse enviar el mensaje se mostrará en la pantalla y se enviará para que lo reciba el receptor

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:backgroundTint="@color/fondo_menu">
+
+    <TextView
+        android:id="@+id/textNombreGrupo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nombreGrupo"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textUsuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/usuariosUnidosAlGrupo"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewUsuariosUnidos"
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"/>
+
+    <Button
+        android:id="@+id/buttonEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/eliminarGrupo"
+        android:textStyle="bold"
+        android:layout_marginTop="500dp"
+        android:textColor="@color/rojo"
+        android:backgroundTint="@color/fondo_menu"/>
+
+    <Button
+        android:id="@+id/buttonCerrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cerrar"
+        android:textStyle="bold"
+        android:layout_marginTop="550dp"
+        android:textColor="@color/colorIcono_celeste"
+        android:backgroundTint="@color/fondo_menu"/>
+
+</androidx.cardview.widget.CardView>

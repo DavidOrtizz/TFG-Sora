@@ -88,4 +88,8 @@
     <string name="exitoUnirseGrupo">Te has unido al grupo con éxito</string>
     <string name="errorUnirseGrupo">Ha ocurrido un error al unirte al grupo</string>
     <string name="google">Google</string>
+    <string name="usuariosUnidosAlGrupo">Usuarios que se han unido al grupo</string>
+    <string name="expulsar">Expulsar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="eliminarGrupo">Eliminar grupo</string>
 </resources>
