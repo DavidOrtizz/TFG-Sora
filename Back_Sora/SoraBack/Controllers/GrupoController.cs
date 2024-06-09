@@ -111,5 +111,18 @@ namespace SoraBack.Controllers
                 return NotFound();
             }
         }
+
+
+        [AllowAnonymous]
+        [HttpDelete("eliminarGrupo")]
+        public IActionResult EliminarGrupo([FromQuery] int idGrupo)
+        {
+            var grupoEncontrado = _dbContext.Grupos.FirstOrDefault(g => g.GrupoId == idGrupo);
+
+            _dbContext.Grupos.Remove(grupoEncontrado);
+            _dbContext.SaveChanges();
+
+            return Ok(new { mensaje = "Grupo eliminado correctamente" });
+        }
     }
 }

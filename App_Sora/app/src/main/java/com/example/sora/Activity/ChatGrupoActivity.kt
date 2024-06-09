@@ -21,7 +21,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.sora.Adapter.ChatGrupoAdapter
+import com.example.sora.Controllers.Constants
+import com.example.sora.Controllers.SSLSocketFactoryUtil
 import com.example.sora.Datos.MensajeGrupoResponse
 import com.example.sora.R
 import com.google.firebase.database.DataSnapshot
@@ -89,11 +95,21 @@ class ChatGrupoActivity : AppCompatActivity() {
             dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
             val textNombreGrupo = dialog.findViewById<TextView>(R.id.textNombreGrupo)
+
+            textNombreGrupo.text = nombreGrupo
+
+            val miembrosGrupo = dialog.findViewById<RecyclerView>(R.id.recyclerViewUsuariosUnidos)
             val btnCerrar = dialog.findViewById<Button>(R.id.buttonCerrar)
-            val btnEliminar = dialog.findViewById<Button>(R.id.buttonEliminar)
+            val btnEliminarGrupo = dialog.findViewById<Button>(R.id.buttonEliminar)
 
             btnCerrar.setOnClickListener {
                 dialog.dismiss()
+            }
+
+            btnEliminarGrupo.setOnClickListener {
+                if (grupoId != null) {
+                    eliminarGrupo(grupoId.toInt())
+                }
             }
 
             dialog.show()
@@ -113,6 +129,29 @@ class ChatGrupoActivity : AppCompatActivity() {
         }
 
         cargarMensajes()
+    }
+
+    private fun eliminarGrupo(id: Int){
+        val url = "${Constants.URL_EliminarGrupos}?idGrupo=$id"
+        val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
+        val queue = Volley.newRequestQueue(this, sslSocketFactory)
+
+        val eliminarGrupo = object : StringRequest(Request.Method.DELETE, url, Response.Listener {
+            response ->
+                Toast.makeText(this, R.string.exitoEliminarGrupo, Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("cargarMenu", "Grupos")
+                startActivity(intent)
+                finish()
+            },
+            Response.ErrorListener { error ->
+                Log.e("eliminarGrupo", "Error al eliminar el grupo: ${error.message}")
+                Toast.makeText(this, R.string.errorEliminarGrupo, Toast.LENGTH_SHORT).show()
+            }
+        ) {}
+
+        queue.add(eliminarGrupo)
     }
 
     // Carga todos los mensajes que han enviado los usuarios

@@ -92,4 +92,6 @@
     <string name="expulsar">Expulsar</string>
     <string name="eliminar">Eliminar</string>
     <string name="eliminarGrupo">Eliminar grupo</string>
+    <string name="exitoEliminarGrupo">El grupo ha sido eliminado</string>
+    <string name="errorEliminarGrupo">El grupo no ha podido ser eliminado</string>
 </resources>
