@@ -26,9 +26,11 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.sora.Adapter.ChatGrupoAdapter
+import com.example.sora.Adapter.UsuariosDentroGrupoAdapter
 import com.example.sora.Controllers.Constants
 import com.example.sora.Controllers.SSLSocketFactoryUtil
 import com.example.sora.Datos.MensajeGrupoResponse
+import com.example.sora.Datos.MiembroGrupoResponse
 import com.example.sora.R
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -88,31 +90,7 @@ class ChatGrupoActivity : AppCompatActivity() {
 
         // Boton que solo puede acceder el administrador para entrar en los ajustes del grupo
         btnInfo.setOnClickListener {
-            val dialog = Dialog(this)
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setCancelable(false)
-            dialog.setContentView(R.layout.info_grupo)
-            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-            val textNombreGrupo = dialog.findViewById<TextView>(R.id.textNombreGrupo)
-
-            textNombreGrupo.text = nombreGrupo
-
-            val miembrosGrupo = dialog.findViewById<RecyclerView>(R.id.recyclerViewUsuariosUnidos)
-            val btnCerrar = dialog.findViewById<Button>(R.id.buttonCerrar)
-            val btnEliminarGrupo = dialog.findViewById<Button>(R.id.buttonEliminar)
-
-            btnCerrar.setOnClickListener {
-                dialog.dismiss()
-            }
-
-            btnEliminarGrupo.setOnClickListener {
-                if (grupoId != null) {
-                    eliminarGrupo(grupoId.toInt())
-                }
-            }
-
-            dialog.show()
+                mostrarInfo(grupoId,nombreGrupo)
         }
 
         // Cuando se pulse enviar el mensaje se mostrará en la pantalla y se enviará para que lo reciba el receptor
@@ -129,6 +107,35 @@ class ChatGrupoActivity : AppCompatActivity() {
         }
 
         cargarMensajes()
+    }
+
+    private fun mostrarInfo(grupoId: String?, nombreGrupo: String?) {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.info_grupo)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val textNombreGrupo = dialog.findViewById<TextView>(R.id.textNombreGrupo)
+        textNombreGrupo.text = nombreGrupo
+
+        val miembrosGrupo = dialog.findViewById<RecyclerView>(R.id.recyclerViewUsuariosUnidos)
+        miembrosGrupo.layoutManager = LinearLayoutManager(this)
+
+        val btnCerrar = dialog.findViewById<Button>(R.id.buttonCerrar)
+        val btnEliminarGrupo = dialog.findViewById<Button>(R.id.buttonEliminar)
+
+        btnCerrar.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        btnEliminarGrupo.setOnClickListener {
+            if (grupoId != null) {
+                eliminarGrupo(grupoId.toInt())
+            }
+        }
+
+        dialog.show()
     }
 
     private fun eliminarGrupo(id: Int){
