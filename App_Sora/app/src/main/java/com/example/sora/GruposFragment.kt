@@ -14,7 +14,6 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.example.sora.Activity.MenuAgregarGrupo
-import com.example.sora.Adapter.GruposAdapter
 import com.example.sora.Adapter.GruposAgregadosAdapter
 import com.example.sora.Controllers.Constants
 import com.example.sora.Controllers.SSLSocketFactoryUtil

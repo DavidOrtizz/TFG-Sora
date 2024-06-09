@@ -1,7 +1,6 @@
 package com.example.sora.Adapter
 
 import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,16 +10,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.sora.Activity.MainActivity
 import com.example.sora.Controllers.Constants
 import com.example.sora.Controllers.SSLSocketFactoryUtil
 import com.example.sora.Datos.GrupoResponse
 import com.example.sora.R
-import org.json.JSONObject
 
 class GruposAdapter(private val grupos: List<GrupoResponse>, private val usuarioId: Int) :
     RecyclerView.Adapter<GruposAdapter.MostrarGrupo>() {

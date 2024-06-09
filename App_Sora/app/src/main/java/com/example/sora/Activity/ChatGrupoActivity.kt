@@ -26,11 +26,9 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.sora.Adapter.ChatGrupoAdapter
-import com.example.sora.Adapter.UsuariosDentroGrupoAdapter
 import com.example.sora.Controllers.Constants
 import com.example.sora.Controllers.SSLSocketFactoryUtil
 import com.example.sora.Datos.MensajeGrupoResponse
-import com.example.sora.Datos.MiembroGrupoResponse
 import com.example.sora.R
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
