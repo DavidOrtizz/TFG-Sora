@@ -74,4 +74,13 @@
     <string name="errorCreacionGrupo">An error occurred while creating the group</string>
     <string name="nombreGrupo">Group name</string>
     <string name="errorCargarGrupo">Error loading groups</string>
+    <string name="unirse">Join</string>
+    <string name="exitoUnirseGrupo">You have successfully joined the group</string>
+    <string name="errorUnirseGrupo">An error occurred while joining the group</string>
+    <string name="usuariosUnidosAlGrupo">Users who have joined the group</string>
+    <string name="expulsar">" Kick out of the group"</string>
+    <string name="eliminar">Delete</string>
+    <string name="eliminarGrupo">Delete group</string>
+    <string name="exitoEliminarGrupo">The group has been deleted</string>
+    <string name="errorEliminarGrupo">The group could not be deleted</string>
 </resources>
