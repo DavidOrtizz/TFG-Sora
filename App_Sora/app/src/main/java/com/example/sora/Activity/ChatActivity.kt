@@ -100,6 +100,7 @@ class ChatActivity : AppCompatActivity() {
                 if (emisor != null && receptorNombreCuenta != null) {
                     enviarMensaje(emisor, receptorNombreCuenta, contenidoMensaje)
                     escribirMensaje.text.clear()
+
                 } else {
                     Toast.makeText(this, R.string.errorEnviarMensaje, Toast.LENGTH_SHORT).show()
                 }

@@ -193,5 +193,20 @@ namespace SoraBack.Controllers
 
             return BadRequest(new { mensaje = "No se ha encontrado el usuario" });
         }
+
+        [HttpDelete("eliminarUsuario/{id}")]
+        public IActionResult EliminarUsuario(int id)
+        {
+            var usuario = _dbContext.Usuarios.Find(id);
+            if (usuario == null)
+            {
+                return NotFound(new { mensaje = "Usuario no encontrado" });
+            }
+
+            _dbContext.Usuarios.Remove(usuario);
+            _dbContext.SaveChanges();
+
+            return Ok(new { mensaje = "Usuario eliminado exitosamente" });
+        }
     }
 }
