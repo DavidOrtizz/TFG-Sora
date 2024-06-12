@@ -26,15 +26,19 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.sora.Adapter.ChatGrupoAdapter
+import com.example.sora.Adapter.UsuariosDentroGrupoAdapter
 import com.example.sora.Controllers.Constants
 import com.example.sora.Controllers.SSLSocketFactoryUtil
 import com.example.sora.Datos.MensajeGrupoResponse
+import com.example.sora.Datos.MiembroGrupoResponse
 import com.example.sora.R
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import org.json.JSONArray
+import org.json.JSONException
 
 class ChatGrupoActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
@@ -133,7 +137,45 @@ class ChatGrupoActivity : AppCompatActivity() {
             }
         }
 
+        obtenerUsuariosDelGrupo(grupoId, miembrosGrupo)
+
         dialog.show()
+    }
+
+    private fun obtenerUsuariosDelGrupo(grupoId: String?, miembrosGrupo: RecyclerView) {
+        val sslSocketFactory = SSLSocketFactoryUtil.getSSLSocketFactory()
+        val queue = Volley.newRequestQueue(this, sslSocketFactory)
+
+        val request = object : StringRequest(Request.Method.GET, Constants.URL_ObtenerGrupos, Response.Listener { response ->
+            try {
+                val jsonArray = JSONArray(response)
+                for (i in 0 until jsonArray.length()) {
+                    val grupo = jsonArray.getJSONObject(i)
+                    if (grupo.getInt("id") == grupoId?.toInt()) {
+                        val usuariosArray = grupo.getJSONArray("usuarios")
+                        val usuariosList = mutableListOf<MiembroGrupoResponse>()
+
+                        for (j in 0 until usuariosArray.length()) {
+                            val usuario = usuariosArray.getJSONObject(j)
+                            usuariosList.add(
+                                MiembroGrupoResponse(
+                                    usuario.getString("nombreUsuario"),
+                                    usuario.getString("nombreCuenta")
+                                )
+                            )
+                        }
+                        val adapter = UsuariosDentroGrupoAdapter(usuariosList, grupoId, this)
+                        miembrosGrupo.adapter = adapter
+                    }
+                }
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+        }, Response.ErrorListener { error ->
+            Log.e("obtenerUsuariosDelGrupo", "Error: ${error.message}")
+        }) {}
+
+        queue.add(request)
     }
 
     private fun eliminarGrupo(id: Int){

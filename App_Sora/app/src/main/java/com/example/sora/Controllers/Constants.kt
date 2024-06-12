@@ -31,6 +31,7 @@ class Constants {
         const val URL_UnirseGrupo = "https://" + IP_SERVER + "/api/Grupo/unirseGrupo"
         const val URL_MostrarGruposUnidos = "https://" + IP_SERVER + "/api/Grupo/mostrarGruposUnidos/"
         const val URL_EliminarGrupos = "https://" + IP_SERVER + "/api/Grupo/eliminarGrupo"
+        const val URL_EliminarUsuarioGrupo = "https://" + IP_SERVER + "/api/Grupo/eliminarUsuarioGrupo"
 
         // Sin usar...
         const val URL_obtenerDatosUsuario = "https://" + IP_SERVER + "/api/Usuarios/obtenerDatosUsuario"

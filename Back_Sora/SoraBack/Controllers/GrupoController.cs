@@ -35,8 +35,15 @@ namespace SoraBack.Controllers
         public IActionResult ObtenerGrupos()
         {
             var grupos = _dbContext.Grupos.Include(g => g.Usuarios)
-                            .Select(g => new { id = g.GrupoId, nombre = g.Nombre })
-                            .ToList();
+                            .Select(g => new { 
+                                id = g.GrupoId, 
+                                nombre = g.Nombre,
+                                usuarios = g.Usuarios.Select(u => new { 
+                                    nombreUsuario = u.NombreUsuario, 
+                                    nombreCuenta = u.NombreCuenta
+                                }).ToList()
+                            }).ToList();
+
             return Ok(grupos);
         }
 
@@ -76,20 +83,22 @@ namespace SoraBack.Controllers
         public IActionResult UnirseGrupo(int usuarioId, int grupoId)
         {
             var usuario = _dbContext.Usuarios.Find(usuarioId);
-            var grupo = _dbContext.Grupos.Include(g => g.Usuarios).FirstOrDefault(g => g.GrupoId == grupoId);
+            if (usuario == null)
+            {
+                return NotFound(new {mensaje = "El usuario no existe"});
+            }
 
+            var grupo = _dbContext.Grupos.Include(g => g.Usuarios).FirstOrDefault(g => g.GrupoId == grupoId);
             if (grupo == null)
             {
                 return NotFound(new { mensaje = "El grupo no existe" }); // Si el grupo no existe
             }
 
-            if (grupo.Usuarios == null)
+            if (!grupo.Usuarios.Any(u => u.UsuarioId == usuarioId))
             {
-                grupo.Usuarios = new List<Usuario>();
+                grupo.Usuarios.Add(usuario);
+                _dbContext.SaveChanges();
             }
-
-            grupo.Usuarios.Add(usuario);
-            _dbContext.SaveChanges();
 
             return Ok(new { mensaje = "Usuario añadido al grupo" });
         }
@@ -112,6 +121,22 @@ namespace SoraBack.Controllers
             }
         }
 
+        [HttpPost("eliminarUsuarioGrupo")]
+        public IActionResult EliminarUsuarioDelGrupo(int grupoId, string nombreCuenta)
+        {
+            // Buscar el grupo por grupoId
+            var grupo = _dbContext.Grupos.Include(g => g.Usuarios).FirstOrDefault(g => g.GrupoId == grupoId);
+            if (grupo == null) return NotFound(new { message = "Grupo no encontrado" });
+
+            // Buscar el usuario dentro del grupo
+            var usuario = grupo.Usuarios.FirstOrDefault(u => u.NombreCuenta == nombreCuenta);
+            if (usuario == null) return NotFound(new { message = "Usuario no encontrado en el grupo" });
+
+            grupo.Usuarios.Remove(usuario);
+            _dbContext.SaveChanges();
+
+            return Ok(new { message = "Usuario eliminado del grupo exitosamente" });
+        }
 
         [AllowAnonymous]
         [HttpDelete("eliminarGrupo")]
