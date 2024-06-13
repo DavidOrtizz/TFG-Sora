@@ -33,12 +33,13 @@ Una vez hayamos autorizado la fuente, volvemos atrás y nos saldrá si queremos 
 Una vez ya instalado podemos abrir la aplicación. <br>
 
 # Breve tutorial de uso de la aplicación
-https://youtu.be/6wgxlEWUFUo <br>
+
 
 # Enlace a la presentación
 [Presentación TFG por David Ortiz Corchero.pdf](https://github.com/user-attachments/files/15823212/Presentacion.TFG.por.David.Ortiz.Corchero.pdf)
 
 # Video explicatorio
+https://youtu.be/6wgxlEWUFUo <br>
 
 # Bibliografía
 [Android Studio - Bottom Navigation View](https://youtu.be/rm9NGA9UBXs?si=w4DWKEcbEMt41E__) <br>
