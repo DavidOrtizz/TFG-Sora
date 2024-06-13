@@ -8,7 +8,8 @@ Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087
 <h2>Mockup</h2>
 https://iridescent-mouth-151.notion.site/Mockup-9050c3a96aa34ea7a29283d1f3133e90?pvs=4 <br>
 
-<br>
+<h2>Presentación PowerPoint</h2>
+https://www.canva.com/design/DAGH8J2bwfM/xDQ54FRAGMz5erKEED6-oA/edit?utm_content=DAGH8J2bwfM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton <br>
 
 # Enlace  de descarga
 https://drive.google.com/drive/folders/1ZravjhVFXwtzmQyqIqBF92vtUZtL_yXf?usp=sharing
