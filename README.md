@@ -5,16 +5,11 @@ como números de teléfono u otra información sensible.
 Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087cdab347efbf33962287ac45c3?pvs=4
 <br>
 
-<h2>Mockup</h2>
+<h3>Mockup</h3>
 https://iridescent-mouth-151.notion.site/Mockup-9050c3a96aa34ea7a29283d1f3133e90?pvs=4 <br>
 
-<h2>Presentación PowerPoint</h2>
-https://www.canva.com/design/DAGH8J2bwfM/xDQ54FRAGMz5erKEED6-oA/edit?utm_content=DAGH8J2bwfM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton <br>
-
 # Enlace  de descarga
-https://drive.google.com/drive/folders/1ZravjhVFXwtzmQyqIqBF92vtUZtL_yXf?usp=sharing
-
-<br>
+https://drive.google.com/drive/folders/1ZravjhVFXwtzmQyqIqBF92vtUZtL_yXf?usp=sharing <br>
 
 # Manual de instalación
 <h2>Cómo instalar la aplicación</h2>
@@ -35,17 +30,15 @@ Autorizamos la fuente para poder instalar la aplicación. <br>
 Una vez hayamos autorizado la fuente, volvemos atrás y nos saldrá si queremos instalar la aplicación. Pulsamos en instalar. <br>
 ![Captura de pantalla 2024-05-10 190448](https://github.com/DavidOrtizz/TFG-Sora/assets/116579416/6e95f030-1713-467e-918f-706df77c8150)
 <br>
-Una vez ya instalado podemos abrir la aplicación.
+Una vez ya instalado podemos abrir la aplicación. <br>
 
-<br>
+# Breve tutorial de uso de la aplicación
+https://youtu.be/6wgxlEWUFUo <br>
 
-# Breve tutorial
-
-<br>
+# Enlace a la presentación
+[Presentación TFG por David Ortiz Corchero.pdf](https://github.com/user-attachments/files/15823212/Presentacion.TFG.por.David.Ortiz.Corchero.pdf)
 
 # Video explicatorio
-Enlace para poder ver el video explicatorio: https://youtu.be/Dl5yziEjEYs
-<br>
 
 # Bibliografía
 [Android Studio - Bottom Navigation View](https://youtu.be/rm9NGA9UBXs?si=w4DWKEcbEMt41E__) <br>
