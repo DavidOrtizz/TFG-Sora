@@ -5,6 +5,8 @@ como números de teléfono u otra información sensible.
 Link anteproyecto: https://iridescent-mouth-151.notion.site/Anteproyecto-8dd2087cdab347efbf33962287ac45c3?pvs=4
 <br>
 
+Link base de datos: https://iridescent-mouth-151.notion.site/Base-de-datos-fa7130799fa442c8aa3319b8e75afa3b?pvs=4
+
 <h3>Mockup</h3>
 https://iridescent-mouth-151.notion.site/Mockup-9050c3a96aa34ea7a29283d1f3133e90?pvs=4 <br>
 
