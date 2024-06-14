@@ -33,7 +33,7 @@ Una vez hayamos autorizado la fuente, volvemos atrás y nos saldrá si queremos 
 Una vez ya instalado podemos abrir la aplicación. <br>
 
 # Breve tutorial de uso de la aplicación
-
+https://docs.google.com/document/d/1p1pXDvD_vN1uiGUbIE1SB59eagoKyDQCA6dfh5UlSqs/edit?usp=sharing
 
 # Enlace a la presentación
 [Presentación TFG por David Ortiz Corchero.pdf](https://github.com/user-attachments/files/15823212/Presentacion.TFG.por.David.Ortiz.Corchero.pdf)
